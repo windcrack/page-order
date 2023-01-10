@@ -1,0 +1,44 @@
+.header
+    border-bottom: 0.5px solid var(--color-gray-ligth)
+    padding: 25px 0
+    margin: 0 0 50px
+
+    &-container 
+        display: flex
+        justify-content: space-between
+    
+    &-nav
+        display: flex
+        gap: 40px
+        
+        &__link
+            text-decoration: none
+            color: var(--color-black)
+    
+    &-logo
+        width: 100px
+        height: 22px
+
+    &-controls
+        display: flex
+        align-items: center
+        gap: 30px
+
+        &__favorite, &__card
+            position: relative
+        
+
+        &__number
+            display: grid
+            place-content: center
+            width: 15px
+            // height: 15px
+            border-radius: 50%
+            color: var(--color-white)
+            background: var(--color-black)
+            position: absolute
+            right: -4px
+            top: -5px
+            font-weight: 400
+            font-size: 10px
+            line-height: 15px

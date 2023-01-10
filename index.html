@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница заказа</title>
+    <link rel="stylesheet" href="/style/index.css">
+ </head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <nav class="header-nav">
+                <a href="" class="header-nav__link">Каталог</a>
+                <a href="" class="header-nav__link">О компании</a>
+                <a href="" class="header-nav__link">Магазины</a>
+            </nav>
+            <div class="header-logo">
+                <a href="#">
+                    <img src="img/svg/Logo.svg" alt="Лого" class="header-logo__img">
+                </a>
+            </div>
+            <div class="header-controls">
+                <button class="header-contorls__search btn">
+                    <svg width="20" height="20">
+                        <use xlink:href="#search"></use>
+                    </svg>
+                </button>
+                <button class="header-contorls__login btn">
+                    <svg width="20" height="20">
+                        <use xlink:href="#login"></use>
+                    </svg>
+                </button>
+                <a href="#" class="header-controls__favorite btn">
+                    <svg width="20" height="20">
+                        <use xlink:href="#favorite"></use>
+                    </svg>
+                    <span class="header-controls__number">8</span>
+                </a>
+                <a href="#" class="header-controls__card btn">
+                    <svg width="20" height="20">
+                        <use xlink:href="#bag"></use>
+                    </svg>
+                    <span class="header-controls__number">8</span>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="breadcrums">
+            <ul class="breadcrums__body">
+                <li class="breadcrums__item"><a href="#" class="breadcrums__link">Главная</a></li>
+                <li class="breadcrums__item breadcrums__item_active">Оформление заказа</li>
+            </ul>
+        </div>
+        <section class="order-body">
+            <div class="order-body__main">
+                <header class="order-header">
+                    <h1 class="order-header__title">Оформление заказа</h1>
+                    <div class="order-header__login">
+                        <ul class="order-header__login-body">
+                            <li class="order-header__login-item">Есть аккаунт?</li>
+                            <li class="order-header__login-item">
+                                <a href="#" class="order-header__login-link">Войти</a>
+                            </li>
+                        </ul>
+                    </div>
+                </header>
+                <div class="order-block">
+                    <h2 class="order-block__title">3 товара на сумму 25 000 ₽</h2>
+                    <div class="order-card">
+                        <div class="order-card__img-block">
+                            <img src="img/order/img1.png" alt="Утепленная стеганная куртка женская Top Hills" class="order-card__img">
+                        </div>
+                        <div class="order-card__descr descr">
+                            <h3 class="descr-title">Утепленная стеганная куртка женская Top Hills</h3>
+                            <div class="descr-article">Артикул <span>512-05</span></div>
+                            <div class="descr-season">Сезон <span>Осень-зима</span></div>
+                            <ul class="descr-size">
+                                <li class="descr-size__item">
+                                    <button class="descr-size__btn btn">XS</button>
+                                </li>
+                                <li class="descr-size__item">
+                                    <button class="descr-size__btn btn">S</button>
+                                </li>
+                                <li class="descr-size__item descr-size__item_active">
+                                    <button class="descr-size__btn btn">M</button>
+                                </li>
+                                <li class="descr-size__item">
+                                    <button class="descr-size__btn btn">L</button>
+                                </li>
+                                <li class="descr-size__item">
+                                    <button class="descr-size__btn btn">XL</button>
+                                </li>
+                            </ul>
+                            <ul class="descr-color">
+                                <li class="descr-color__item descr-color__item-black">
+                                    <input type="radio" name="color" value="black" id="black" class="descr-color__input" checked="true">
+                                    <label for="black" class="descr-color__label"><span></span></label>
+                                </li>
+                                <li class="descr-color__item descr-color__item-blue">
+                                    <input type="radio" name="color" value="blue" id="blue" class="descr-color__input">
+                                    <label for="blue" class="descr-color__label"><span></span></label>
+                                </li>
+                                <li class="descr-color__item descr-color__item-brown">
+                                    <input type="radio" name="color" value="brown" id="brown" class="descr-color__input">
+                                    <label for="brown" class="descr-color__label"><span></span></label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="order-card__price price">
+                            <div class="price__main">12 000 ₽</div>
+                            <div class="price__sale">10 000 ₽</div>
+                        </div>
+                        <div class="order-card__number">
+                            <button class="order-card__number_minus">
+                                <svg width="32" height="32">
+                                    <use xlink:href="#minus"></use>
+                                </svg>
+                            </button>
+                            <div class="order-card__number_total">2</div>
+                            <button class="order-card__number_plus">
+                                <svg width="32" height="32">
+                                    <use xlink:href="#plus"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="order-card__price price price_last">
+                            <div class="price__main">24 000 ₽</div>
+                            <div class="price__sale">20 000 ₽</div>
+                        </div>
+                        <button class="order-card__delete btn">
+                            <svg width="22" height="22">
+                                <use xlink:href="#cross"></use>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="order-card">
+                        <div class="order-card__img-block">
+                            <img src="img/order/img2.png" alt="Утепленная стеганная куртка женская Top Hills" class="order-card__img">
+                        </div>
+                        <div class="order-card__descr descr">
+                            <h3 class="descr-title">Вязанная шапка Zolla</h3>
+                            <div class="descr-article">Артикул <span>891-256</span></div>
+                            <div class="descr-season">Сезон <span>Демисезон</span></div>
+                            <ul class="descr-size">
+                                <li class="descr-size__item">
+                                    <button class="descr-size__btn btn">XS</button>
+                                </li>
+                                <li class="descr-size__item descr-size__item_active">
+                                    <button class="descr-size__btn btn">S</button>
+                                </li>
+                                <li class="descr-size__item">
+                                    <button class="descr-size__btn btn">M</button>
+                                </li>
+                                <li class="descr-size__item">
+                                    <button class="descr-size__btn btn">L</button>
+                                </li>
+                                <li class="descr-size__item">
+                                    <button class="descr-size__btn btn">XL</button>
+                                </li>
+                            </ul>
+                            <ul class="descr-color">
+                                <li class="descr-color__item descr-color__item-black">
+                                    <input type="radio" name="color" value="black" id="black" class="descr-color__input" checked="true">
+                                    <label for="black" class="descr-color__label"><span></span></label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="order-card__price price">
+                            <!-- <div class="price__main">12 000 ₽</div> -->
+                            <div class="price__sale">500 ₽</div>
+                        </div>
+                        <div class="order-card__number">
+                            <button class="order-card__number_minus">
+                                <svg width="32" height="32">
+                                    <use xlink:href="#minus"></use>
+                                </svg>
+                            </button>
+                            <div class="order-card__number_total">2</div>
+                            <button class="order-card__number_plus">
+                                <svg width="32" height="32">
+                                    <use xlink:href="#plus"></use>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="order-card__price price price_last">
+                            <!-- <div class="price__main">24 000 ₽</div> -->
+                            <div class="price__sale">500 ₽</div>
+                        </div>
+                        <button class="order-card__delete btn">
+                            <svg width="22" height="22">
+                                <use xlink:href="#cross"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <section class="contact">
+                    <h2 class="contact__title contact__title_main">Контактные данные</h2>
+                    <form class="contact__body" action="" method="POST">
+                        <div class="form">
+                            <div class="form-block">
+                                
+                                <input class="form-block__input" type="text" placeholder="Имя" required>
+                                <span class="form-block__after">Имя</span>
+                            </div>
+                            <div class="form-block">
+                                <input class="form-block__input" type="text" placeholder="Фамилия" required>
+                                <span class="form-block__after">Фамилия</span>
+                            </div>
+                            <div class="form-block">
+                                
+                                <input class="form-block__input" type="text" placeholder="Телефон" required>
+                                <span class="form-block__after">Телефон</span>
+                            </div>
+                            <div class="form-block">
+                                <input class="form-block__input" type="text" placeholder="Email" required>
+                                <span class="form-block__after">Email</span>
+                            </div>
+                            <div class="form-block form-block_address">
+                                <input class="form-block__input" type="text" placeholder="Адрес доставки" required>
+                                <span class="form-block__after">Адрес доставки</span>
+                            </div>
+                        </div>
+                        <div class="payment">
+                            <h3 class="contact__title">Оплата</h3>
+                            <div class="payment__list">
+                                <div class="payment__variant">
+                                    <input type="radio" name="payment" id="one" class="payment__input">
+                                    <label for="one" class="payment__label">Наличными курьеру</label>
+                                </div>
+                                <div class="payment__variant">
+                                    <input type="radio" name="payment" id="two" class="payment__input">
+                                    <label for="two" class="payment__label">Картой курьеру</label>
+                                </div>
+                                <div class="payment__variant">
+                                    <input type="radio" name="payment" id="three" class="payment__input">
+                                    <label for="three" class="payment__label">Картой онлайн</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <h3 class="contact__title">Комментарий к заказу</h3>
+                            <textarea name="" id="" cols="30" rows="10" class="comment__text" placeholder="Комментарий к заказу"></textarea>
+                        </div> 
+                    </form>
+                </section>
+            </div>
+            <aside class="order-body__left">
+                <div class="aside-block">
+                    <ul class="aside-block__list">
+                        <li class="aside-block__item aside-block__item_total">
+                            <div class="aside-block__item-title">Товары</div>
+                            <div class="aside-block__item-text">24 500 ₽</div>
+                        </li>
+                        <li class="aside-block__item aside-block__item_sale">
+                            <div class="aside-block__item-title">Скидка</div>
+                            <div class="aside-block__item-text">- 4 500 ₽</div>
+                        </li>
+                        <li class="aside-block__item aside-block__item_stock">
+                            <div class="aside-block__item-title">Акции</div>
+                            <div class="aside-block__item-text">- 4 000 ₽</div>
+                        </li>
+                        <li class="aside-block__item aside-block__item_promo">
+                            <div class="aside-block__item-title">Промокод</div>
+                            <div class="aside-block__item-text">- 500 ₽</div>
+                        </li>
+                        <li class="aside-block__item aside-block__item_deviliry">
+                            <div class="aside-block__item-title">Доставка</div>
+                            <div class="aside-block__item-text">200 ₽</div>
+                        </li>
+                    </ul>
+                    <div class="aside-block__deviliry">
+                        <div class="aside-block__deviliry-title">Получить товар со склада</div>
+                        <div class="aside-block__deviliry-subtitle">Сроки получения могут измениться</div>
+                        <div class="aside-block__deviliry-select">
+                            <label for="select" class="checkbox-google">
+                                <input type="checkbox" name="" id="select" class="aside-block__deviliry-radio">
+                                <span class="checkbox-google-switch"></span>
+                            </label>
+                        </div>
+                        
+                    </div>
+                    <div class="aside-block__total"> 
+                        <div class="aside-block__total-text">Итого:</div>
+                        <div class="aside-block__total-number">20 700 ₽</div>
+                        <div class="aside-block__total-promo">
+                            <input type="text" name="" id="" class="aside-block__total-input" placeholder="Введите промокод">
+                        </div>
+                        <button class="btn btn__order" type="submit">Оформить заказ</button>
+                        <span class="aside-block__total-policity">Нажимая кнопку “Оформить заказ”, Вы соглашаетесь с <a href="#">политикой конфиденциальности.</a></span>
+                    </div>
+                </div>
+            </aside>
+        </section>
+        
+    </main>
+    <footer></footer>
+    <!-- svg -->
+    <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position: absolute">
+        <defs>
+            <symbol viewBox="0 0 20 20" id="search" fill="none">
+                <path d="M14.6033 14.6031L18.2858 18.2857" stroke="black" stroke-linejoin="round"/>
+                <path d="M16.4444 9.07927C16.4444 13.1469 13.147 16.4443 9.07939 16.4443C5.01179 16.4443 1.71436 13.1469 1.71436 9.07927C1.71436 5.01167 5.01179 1.71423 9.07939 1.71423C13.147 1.71423 16.4444 5.01167 16.4444 9.07927Z" stroke="black"/>
+            </symbol>
+            <symbol viewBox="0 0 20 20" id="login" fill="none">
+                <path d="M15.806 7.51997C15.806 10.7586 13.1821 13.3263 9.9289 13.3263C6.67572 13.3263 4.05176 10.7586 4.05176 7.51997C4.05176 4.27411 6.68304 1.64282 9.9289 1.64282C13.1748 1.64282 15.806 4.27411 15.806 7.51997Z" stroke="black"/>
+                <path d="M1.14282 19.0743V19.0743C4.96511 12.061 15.0348 12.061 18.8571 19.0743V19.0743" stroke="black"/>
+            </symbol>
+            <symbol viewBox="0 0 20 20" id="favorite" fill="none">
+                <path d="M15.9089 8.82181L9.00774 15.7143L2.10655 8.82181C1.65135 8.37512 1.2928 7.83824 1.05347 7.24495C0.814146 6.65166 0.699226 6.01483 0.715951 5.37456C0.732676 4.73429 0.880683 4.10444 1.15065 3.52468C1.42062 2.94492 1.8067 2.42782 2.28459 2.00592C2.76247 1.58402 3.32181 1.26648 3.92737 1.07328C4.53293 0.880079 5.1716 0.815414 5.80317 0.883353C6.43473 0.951292 7.0455 1.15036 7.59702 1.46803C8.14854 1.7857 8.62886 2.21509 9.00774 2.72915C9.38825 2.21882 9.86913 1.79319 10.4203 1.47889C10.9714 1.16459 11.581 0.968394 12.2107 0.902578C12.8405 0.836762 13.477 0.902743 14.0804 1.09639C14.6837 1.29004 15.2409 1.60719 15.7171 2.02799C16.1933 2.44879 16.5783 2.96418 16.8479 3.5419C17.1175 4.11962 17.2659 4.74725 17.2839 5.38549C17.3019 6.02373 17.1891 6.65884 16.9525 7.25109C16.7159 7.84333 16.3606 8.37996 15.9089 8.82737" stroke="black" stroke-linecap="round" stroke-linejoin="round"/> 
+            </symbol>
+            <symbol viewBox="0 0 20 20" id="bag" fill="none">
+                <path d="M6.85711 3.62496C7.43524 -0.26429 13.0339 -0.247719 13.7143 3.62496M17.4183 5.3396L18.8334 14.4385C18.8781 14.7265 18.8595 15.0206 18.7786 15.3008C18.6978 15.581 18.5568 15.8406 18.3651 16.0618C18.1735 16.283 17.9358 16.4606 17.6684 16.5825C17.4009 16.7043 17.11 16.7676 16.8156 16.7678H3.18642C2.8918 16.7679 2.60066 16.7048 2.33295 16.5831C2.06525 16.4614 1.82731 16.2838 1.63546 16.0626C1.4436 15.8413 1.30237 15.5816 1.22143 15.3013C1.1405 15.021 1.12178 14.7267 1.16657 14.4385L2.58159 5.3396C2.65581 4.862 2.90043 4.42649 3.27114 4.11196C3.64185 3.79742 4.11414 3.62466 4.60246 3.62496H15.3995C15.8877 3.6249 16.3597 3.79778 16.7302 4.11229C17.1007 4.4268 17.3452 4.86217 17.4194 5.3396H17.4183Z" stroke="black" stroke-linejoin="round"/>
+            </symbol>
+            <symbol viewBox="0 0 32 32" id="minus">
+                <path d="M10 16H22" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </symbol>
+            <symbol viewBox="0 0 32 32" id="plus">
+                <path d="M10 16H22" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16 10L16 22" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </symbol>
+            <symbol viewBox="0 0 22 22" id="cross">
+                <path d="M17.5 4.5L4.5 17.5" stroke="black" stroke-width="1.5"/>
+                <path d="M4.5 4.5L17.5 17.5" stroke="black" stroke-width="1.5"/>
+            </symbol>
+        </defs>
+    </svg>
+</body>
+</html>
