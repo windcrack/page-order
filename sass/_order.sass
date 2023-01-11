@@ -7,6 +7,7 @@
         &__left
             display: grid
             gap: 187px
+            grid-auto-rows: max-content
     
     &-header
         display: flex
@@ -98,7 +99,16 @@
         
         &__delete
             height: fit-content
+    &-delete
+        width: 100%
+        padding: 15px 25px
+        background: var(--color-gray-trans)
+        display: flex
+        align-items: center
 
+        &__text
+            color: var(--color-gray)
+            margin-right: 25px
 
 .descr
 
@@ -199,6 +209,7 @@
 .aside-block
     border: 1px solid var(--color-gray)
     padding: 30px 20px
+    height: fit-content
 
     &__list
         list-style: none
@@ -278,11 +289,8 @@
             font-size: 16px
             line-height: 21px
             margin: 0 0 20px
-            
-            &:focus
-                border: 1px solid var(--color-gray)
-                & ~ .form-block__after
-                        display: block
+            outline: none
+
 
         &-number
             justify-self: end
@@ -342,11 +350,6 @@
             border: 1px solid var(--color-gray-ligth)
             outline: none
 
-            &:focus
-                border: 1px solid var(--color-gray)
-                & ~ .form-block__after
-                        display: block
-
 .payment
     margin: 0 0 40px
     &__list
@@ -377,11 +380,6 @@
         outline: none
         padding: 15px 20px
         font-family: var(--font-helvetica-regular)
-
-        &:focus
-            border: 1px solid var(--color-gray)
-            & ~ .form-block__after
-                    display: block
     
     &__count
         font-weight: 400

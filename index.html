@@ -137,8 +137,14 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="orde-delete">
-
+                    <div class="order-delete">
+                        <div class="order-delete__text">Товар <b>Наименование товара</b> был удален из корзины.</div>
+                        <button class="btn btn__return">Восстановить</button>
+                        <button class="btn btn__close">
+                            <svg width="22" height="22">
+                                <use xlink:href="#cross"></use>
+                            </svg>
+                        </button>
                     </div>
                     <div class="order-card">
                         <div class="order-card__img-block">
@@ -206,26 +212,25 @@
                     <h2 class="contact__title contact__title_main">Контактные данные</h2>
                     <form class="contact__body" action="" method="POST">
                         <div class="form">
-                            <div class="form-block">
-                                
-                                <input class="form-block__input" type="text" placeholder="Имя" required>
+                            <div class="form-block js-input-block">
+                                <input class="form-block__input js-input" type="text" placeholder="Имя" required>
                                 <span class="form-block__after">Имя</span>
                             </div>
-                            <div class="form-block">
-                                <input class="form-block__input" type="text" placeholder="Фамилия" required>
+                            <div class="form-block js-input-block">
+                                <input class="form-block__input js-input" type="text" placeholder="Фамилия" required>
                                 <span class="form-block__after">Фамилия</span>
                             </div>
-                            <div class="form-block">
+                            <div class="form-block js-input-block">
                                 
-                                <input class="form-block__input" type="text" placeholder="Телефон" required>
+                                <input class="form-block__input js-input" type="text" placeholder="Телефон" required>
                                 <span class="form-block__after">Телефон</span>
                             </div>
-                            <div class="form-block">
-                                <input class="form-block__input" type="text" placeholder="Email" required>
+                            <div class="form-block js-input-block">
+                                <input class="form-block__input js-input" type="text" placeholder="Email" required>
                                 <span class="form-block__after">Email</span>
                             </div>
-                            <div class="form-block form-block_address">
-                                <input class="form-block__input" type="text" placeholder="Адрес доставки" required>
+                            <div class="form-block form-block_address js-input-block">
+                                <input class="form-block__input form-block__address js-input" id="address" type="text" placeholder="Адрес доставки" required>
                                 <span class="form-block__after">Адрес доставки</span>
                             </div>
                         </div>
@@ -233,7 +238,7 @@
                             <h3 class="contact__title">Оплата</h3>
                             <div class="payment__list">
                                 <div class="payment__variant">
-                                    <input type="radio" name="payment" id="one" class="payment__input custom-radio">
+                                    <input type="radio" name="payment" id="one" class="payment__input custom-radio" checked>
                                     <label for="one" class="payment__label">Наличными курьеру</label>
                                 </div>
                                 <div class="payment__variant">
@@ -248,8 +253,8 @@
                         </div>
                         <div class="comment">
                             <h3 class="contact__title">Комментарий к заказу</h3>
-                            <div class="comment__body">
-                                <textarea name="" id="" class="comment__text" placeholder="Комментарий к заказу"></textarea>
+                            <div class="comment__body js-input-block">
+                                <textarea name="" id="" class="comment__text js-input" placeholder="Комментарий к заказу"></textarea>
                                 <span class="form-block__after">Комментарий к заказу</span>
                             </div>
                             <div class="comment__count">Использовано: <span class="comment__count-start">0</span>/<span class="comment__count-total">142</span></div>
@@ -292,16 +297,16 @@
                         </div>
                         
                     </div>
-                    <div class="aside-block__total"> 
+                    <form class="aside-block__total"> 
                         <div class="aside-block__total-text">Итого:</div>
                         <div class="aside-block__total-number">20 700 &#x20bd;</div>
-                        <div class="aside-block__total-promo">
-                            <input type="text" name="" id="" class="aside-block__total-input" placeholder="Введите промокод">
+                        <div class="aside-block__total-promo js-input-block">
+                            <input type="text" name="" id="" class="aside-block__total-input js-input" placeholder="Введите промокод">
                             <span class="form-block__after">Введите промокод</span>
                         </div>
                         <button class="btn btn__order" type="submit">Оформить заказ</button>
                         <span class="aside-block__total-policity">Нажимая кнопку “Оформить заказ”, Вы соглашаетесь с <a href="#">политикой конфиденциальности.</a></span>
-                    </div>
+                    </form>
                 </div>
                 <div class="aside-map">
                     <div id="map-body" class="aside-map__body"></div>
@@ -341,7 +346,7 @@
             </symbol>
         </defs>
     </svg>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=4d3223b0-a2d8-4af8-a6ad-e0d14809a077&lang=ru_RU"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

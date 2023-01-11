@@ -146,6 +146,16 @@ img {
 .btn__icon:hover {
   color: var(--color-gray);
 }
+.btn__return {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+.btn__close {
+  width: 22px;
+  height: 22px;
+  margin-left: auto;
+}
 .btn__order {
   grid-column: 1/span 3;
   background: var(--color-black);
@@ -205,6 +215,7 @@ img {
 .order-body__left {
   display: grid;
   gap: 187px;
+  grid-auto-rows: max-content;
 }
 .order-header {
   display: flex;
@@ -302,6 +313,17 @@ img {
 .order-card__delete {
   height: fit-content;
 }
+.order-delete {
+  width: 100%;
+  padding: 15px 25px;
+  background: var(--color-gray-trans);
+  display: flex;
+  align-items: center;
+}
+.order-delete__text {
+  color: var(--color-gray);
+  margin-right: 25px;
+}
 
 .descr span {
   color: var(--color-black);
@@ -391,6 +413,7 @@ img {
 .aside-block {
   border: 1px solid var(--color-gray);
   padding: 30px 20px;
+  height: fit-content;
 }
 .aside-block__list {
   list-style: none;
@@ -471,12 +494,7 @@ img {
   font-size: 16px;
   line-height: 21px;
   margin: 0 0 20px;
-}
-.aside-block__total-input:focus {
-  border: 1px solid var(--color-gray);
-}
-.aside-block__total-input:focus ~ .form-block__after {
-  display: block;
+  outline: none;
 }
 .aside-block__total-number {
   justify-self: end;
@@ -541,12 +559,6 @@ img {
   border: 1px solid var(--color-gray-ligth);
   outline: none;
 }
-.form-block__input:focus {
-  border: 1px solid var(--color-gray);
-}
-.form-block__input:focus ~ .form-block__after {
-  display: block;
-}
 
 .payment {
   margin: 0 0 40px;
@@ -579,12 +591,6 @@ img {
   outline: none;
   padding: 15px 20px;
   font-family: var(--font-helvetica-regular);
-}
-.comment__text:focus {
-  border: 1px solid var(--color-gray);
-}
-.comment__text:focus ~ .form-block__after {
-  display: block;
 }
 .comment__count {
   font-weight: 400;
