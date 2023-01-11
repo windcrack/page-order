@@ -11,7 +11,7 @@
     <header class="header">
         <div class="container header-container">
             <nav class="header-nav">
-                <a href="" class="header-nav__link">Каталог</a>
+                <a href="" class="header-nav__link header-nav__link_active">Каталог</a>
                 <a href="" class="header-nav__link">О компании</a>
                 <a href="" class="header-nav__link">Магазины</a>
             </nav>
@@ -22,23 +22,23 @@
             </div>
             <div class="header-controls">
                 <button class="header-contorls__search btn">
-                    <svg width="20" height="20">
+                    <svg class="btn__icon" width="20" height="20">
                         <use xlink:href="#search"></use>
                     </svg>
                 </button>
                 <button class="header-contorls__login btn">
-                    <svg width="20" height="20">
+                    <svg class="btn__icon" width="20" height="20">
                         <use xlink:href="#login"></use>
                     </svg>
                 </button>
                 <a href="#" class="header-controls__favorite btn">
-                    <svg width="20" height="20">
+                    <svg class="btn__icon" width="20" height="20">
                         <use xlink:href="#favorite"></use>
                     </svg>
                     <span class="header-controls__number">8</span>
                 </a>
                 <a href="#" class="header-controls__card btn">
-                    <svg width="20" height="20">
+                    <svg class="btn__icon" width="20" height="20">
                         <use xlink:href="#bag"></use>
                     </svg>
                     <span class="header-controls__number">8</span>
@@ -67,7 +67,7 @@
                     </div>
                 </header>
                 <div class="order-block">
-                    <h2 class="order-block__title">3 товара на сумму 25 000 ₽</h2>
+                    <h2 class="order-block__title">3 товара на сумму 25 000 &#x20bd;</h2>
                     <div class="order-card">
                         <div class="order-card__img-block">
                             <img src="img/order/img1.png" alt="Утепленная стеганная куртка женская Top Hills" class="order-card__img">
@@ -78,19 +78,19 @@
                             <div class="descr-season">Сезон <span>Осень-зима</span></div>
                             <ul class="descr-size">
                                 <li class="descr-size__item">
-                                    <button class="descr-size__btn btn">XS</button>
+                                    <button class="btn btn__size">XS</button>
                                 </li>
                                 <li class="descr-size__item">
-                                    <button class="descr-size__btn btn">S</button>
+                                    <button class="btn btn__size">S</button>
                                 </li>
                                 <li class="descr-size__item descr-size__item_active">
-                                    <button class="descr-size__btn btn">M</button>
+                                    <button class="btn btn__size">M</button>
                                 </li>
                                 <li class="descr-size__item">
-                                    <button class="descr-size__btn btn">L</button>
+                                    <button class="btn btn__size">L</button>
                                 </li>
                                 <li class="descr-size__item">
-                                    <button class="descr-size__btn btn">XL</button>
+                                    <button class="btn btn__size">XL</button>
                                 </li>
                             </ul>
                             <ul class="descr-color">
@@ -109,31 +109,36 @@
                             </ul>
                         </div>
                         <div class="order-card__price price">
-                            <div class="price__main">12 000 ₽</div>
-                            <div class="price__sale">10 000 ₽</div>
+                            <div class="price__main">12 000 &#x20bd;</div>
+                            <div class="price__sale">10 000 &#x20bd;</div>
                         </div>
                         <div class="order-card__number">
                             <button class="order-card__number_minus">
-                                <svg width="32" height="32">
+                                <!-- <svg class="order-card__number-icon" width="32" height="32">
                                     <use xlink:href="#minus"></use>
-                                </svg>
+                                </svg> -->
+                                &#x2212;
                             </button>
                             <div class="order-card__number_total">2</div>
                             <button class="order-card__number_plus">
-                                <svg width="32" height="32">
+                                <!-- <svg class="order-card__number-icon" width="32" height="32">
                                     <use xlink:href="#plus"></use>
-                                </svg>
+                                </svg> -->
+                                &#x2B;
                             </button>
                         </div>
                         <div class="order-card__price price price_last">
-                            <div class="price__main">24 000 ₽</div>
-                            <div class="price__sale">20 000 ₽</div>
+                            <div class="price__main">24 000 &#x20bd;</div>
+                            <div class="price__sale">20 000 &#x20bd;</div>
                         </div>
                         <button class="order-card__delete btn">
                             <svg width="22" height="22">
                                 <use xlink:href="#cross"></use>
                             </svg>
                         </button>
+                    </div>
+                    <div class="orde-delete">
+
                     </div>
                     <div class="order-card">
                         <div class="order-card__img-block">
@@ -145,48 +150,50 @@
                             <div class="descr-season">Сезон <span>Демисезон</span></div>
                             <ul class="descr-size">
                                 <li class="descr-size__item">
-                                    <button class="descr-size__btn btn">XS</button>
+                                    <button class="btn btn__size">XS</button>
                                 </li>
                                 <li class="descr-size__item descr-size__item_active">
-                                    <button class="descr-size__btn btn">S</button>
+                                    <button class="btn btn__size">S</button>
                                 </li>
                                 <li class="descr-size__item">
-                                    <button class="descr-size__btn btn">M</button>
+                                    <button class="btn btn__size">M</button>
                                 </li>
                                 <li class="descr-size__item">
-                                    <button class="descr-size__btn btn">L</button>
+                                    <button class="btn btn__size" disabled>L</button>
                                 </li>
                                 <li class="descr-size__item">
-                                    <button class="descr-size__btn btn">XL</button>
+                                    <button class="btn btn__size" disabled>XL</button>
                                 </li>
                             </ul>
                             <ul class="descr-color">
                                 <li class="descr-color__item descr-color__item-black">
-                                    <input type="radio" name="color" value="black" id="black" class="descr-color__input" checked="true">
+                                    <input type="radio" name="color-heat" value="black" id="black" class="descr-color__input" checked="true">
                                     <label for="black" class="descr-color__label"><span></span></label>
                                 </li>
                             </ul>
                         </div>
                         <div class="order-card__price price">
                             <!-- <div class="price__main">12 000 ₽</div> -->
-                            <div class="price__sale">500 ₽</div>
+                            <div class="price__sale">500 &#x20bd;</div>
                         </div>
                         <div class="order-card__number">
-                            <button class="order-card__number_minus">
-                                <svg width="32" height="32">
+                            <button class="order-card__number_minus" disabled>
+                                <!-- <svg class="order-card__number-icon" width="32" height="32">
                                     <use xlink:href="#minus"></use>
-                                </svg>
+                                </svg> -->
+                                &#x2212;
                             </button>
-                            <div class="order-card__number_total">2</div>
+                            <div class="order-card__number_total">1</div>
                             <button class="order-card__number_plus">
-                                <svg width="32" height="32">
+                                <!-- <svg class="order-card__number-icon" width="32" height="32">
                                     <use xlink:href="#plus"></use>
-                                </svg>
+                                </svg> -->
+                                &#x2B;
                             </button>
                         </div>
                         <div class="order-card__price price price_last">
                             <!-- <div class="price__main">24 000 ₽</div> -->
-                            <div class="price__sale">500 ₽</div>
+                            <div class="price__sale">500 &#x20bd;</div>
                         </div>
                         <button class="order-card__delete btn">
                             <svg width="22" height="22">
@@ -226,22 +233,26 @@
                             <h3 class="contact__title">Оплата</h3>
                             <div class="payment__list">
                                 <div class="payment__variant">
-                                    <input type="radio" name="payment" id="one" class="payment__input">
+                                    <input type="radio" name="payment" id="one" class="payment__input custom-radio">
                                     <label for="one" class="payment__label">Наличными курьеру</label>
                                 </div>
                                 <div class="payment__variant">
-                                    <input type="radio" name="payment" id="two" class="payment__input">
+                                    <input type="radio" name="payment" id="two" class="payment__input custom-radio">
                                     <label for="two" class="payment__label">Картой курьеру</label>
                                 </div>
                                 <div class="payment__variant">
-                                    <input type="radio" name="payment" id="three" class="payment__input">
+                                    <input type="radio" name="payment" id="three" class="payment__input custom-radio">
                                     <label for="three" class="payment__label">Картой онлайн</label>
                                 </div>
                             </div>
                         </div>
                         <div class="comment">
                             <h3 class="contact__title">Комментарий к заказу</h3>
-                            <textarea name="" id="" cols="30" rows="10" class="comment__text" placeholder="Комментарий к заказу"></textarea>
+                            <div class="comment__body">
+                                <textarea name="" id="" class="comment__text" placeholder="Комментарий к заказу"></textarea>
+                                <span class="form-block__after">Комментарий к заказу</span>
+                            </div>
+                            <div class="comment__count">Использовано: <span class="comment__count-start">0</span>/<span class="comment__count-total">142</span></div>
                         </div> 
                     </form>
                 </section>
@@ -283,13 +294,17 @@
                     </div>
                     <div class="aside-block__total"> 
                         <div class="aside-block__total-text">Итого:</div>
-                        <div class="aside-block__total-number">20 700 ₽</div>
+                        <div class="aside-block__total-number">20 700 &#x20bd;</div>
                         <div class="aside-block__total-promo">
                             <input type="text" name="" id="" class="aside-block__total-input" placeholder="Введите промокод">
+                            <span class="form-block__after">Введите промокод</span>
                         </div>
                         <button class="btn btn__order" type="submit">Оформить заказ</button>
                         <span class="aside-block__total-policity">Нажимая кнопку “Оформить заказ”, Вы соглашаетесь с <a href="#">политикой конфиденциальности.</a></span>
                     </div>
+                </div>
+                <div class="aside-map">
+                    <div id="map-body" class="aside-map__body"></div>
                 </div>
             </aside>
         </section>
@@ -326,5 +341,7 @@
             </symbol>
         </defs>
     </svg>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

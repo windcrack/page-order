@@ -14,6 +14,14 @@
         &__link
             text-decoration: none
             color: var(--color-black)
+            transition: all var(--effect-transition)
+
+            &_active
+                text-decoration: underline
+            
+            &:hover
+                color: var(--color-gray)
+                text-decoration: none
     
     &-logo
         width: 100px

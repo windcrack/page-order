@@ -5,6 +5,34 @@
     text-decoration: none
     font-family: var(--font-helvetica-regular)
 
+    &__size
+        width: 30px
+        height: 30px
+        border-radius: 6px
+        background: var(--color-gray-trans)
+        display: grid
+        place-content: center
+        font-weight: 400
+        font-size: 12px
+        line-height: 15px
+        transition: all var(--effect-transition)
+
+        &:disabled
+            color: var(--color-gray-ligth)
+
+        &:not([disabled]):hover
+            background: var(--color-gray)
+
+        
+
+    &__icon
+        color: var(--color-black)
+        fill: currentColor
+        transition: color var(--effect-transition)
+        &:hover
+            color: var(--color-gray)
+ 
+
     &__order
         grid-column: 1 / span 3
         background: var(--color-black)
@@ -14,3 +42,11 @@
         font-weight: 700
         margin: 0 0 10px
         font-family: var(--font-helvetica-bold)
+        transition: all var(--effect-transition)
+
+        &:disabled
+            background: var(--color-gray-ligth)
+            color: var(--color-gray)
+
+        &:not([disabled]):hover
+            background: var(--color-gray)

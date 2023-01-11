@@ -3,9 +3,11 @@
         display: grid
         grid-template-columns: 1fr 400px
         gap: 40px
-    &__left
-        display: grid
-        gap: 187px
+
+        &__left
+            display: grid
+            gap: 187px
+    
     &-header
         display: flex
         gap: 20px
@@ -27,6 +29,10 @@
             &-link
                 color: var(--color-black)
                 text-decoration: none
+                transition: all var(--effect-transition)
+
+                &:hover
+                    text-decoration: underline
     &-block
         display: grid
         gap: 25px
@@ -39,6 +45,7 @@
             margin: 0 0 30px
     &-card
         display: flex
+        justify-content: space-between
         padding: 25px 0
         width: 100%
         border-top: 0.5px solid var(--color-gray-ligth)
@@ -69,11 +76,20 @@
                 border: none
                 display: grid
                 place-content: center
+   
             
             &_minus, &_plus
                 cursor: pointer
                 width: 32px
                 height: 32px
+                font-size: 22px
+
+                &:disabled
+                    color: var(--color-gray-ligth)
+
+                &:not([disabled]):hover
+                    color: var(--color-gray)
+                
             
             &_total
                 font-weight: 400
@@ -106,23 +122,14 @@
         margin: 0 0 12px
 
         &__item
-            width: 30px
-            height: 30px
-            border-radius: 6px
-            background: var(--color-gray-trans)
-            display: grid
-            place-content: center
-            cursor: pointer
-
+            
             &_active
-                background: var(--color-black)
-                .descr-size__btn
+                .btn__size
+                    background: var(--color-black)
                     color: var(--color-white)
-        
-        &__btn
-            font-weight: 400
-            font-size: 12px
-            line-height: 15px
+            
+
+            
     &-color
         display: flex
         list-style: none
@@ -261,6 +268,9 @@
         &-promo
             grid-column: 1 / span 3
             width: 100%
+            position: relative
+            
+            
         
         &-input
             width: 100%
@@ -268,6 +278,11 @@
             font-size: 16px
             line-height: 21px
             margin: 0 0 20px
+            
+            &:focus
+                border: 1px solid var(--color-gray)
+                & ~ .form-block__after
+                        display: block
 
         &-number
             justify-self: end
@@ -282,6 +297,13 @@
 
             a
                 color: inherit
+
+.aside-map
+    width: 400px
+    height: 450px
+
+    &__body
+        height: 450px
 
 .contact
     display: grid
@@ -326,6 +348,7 @@
                         display: block
 
 .payment
+    margin: 0 0 40px
     &__list
         display: grid
         gap: 20px
@@ -336,11 +359,33 @@
         line-height: 21px
 
     &__input
-        display: none
+        // display: none
     &__label
         position: relative
-        &::before
-            content: ""
-            position: absolute
-            width: 22px
-            height: 22px
+        //padding-left: 2rem
+
+.comment
+    margin: 0 0 73px
+    &__body
+        position: relative
+        margin: 0 0 4px
+    &__text
+        width: 100%
+        border: 1px solid var(--color-gray-ligth)
+        resize: none
+        min-height: 141px
+        outline: none
+        padding: 15px 20px
+        font-family: var(--font-helvetica-regular)
+
+        &:focus
+            border: 1px solid var(--color-gray)
+            & ~ .form-block__after
+                    display: block
+    
+    &__count
+        font-weight: 400
+        font-size: 12px
+        line-height: 15px
+        color: var(--color-gray)
+        margin-left: 20px
