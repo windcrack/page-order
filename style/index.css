@@ -589,6 +589,11 @@ img {
   border: 1px solid var(--color-gray-ligth);
   outline: none;
 }
+.form-block__valid {
+  margin-top: 4px;
+  color: var(--color-red);
+  display: none;
+}
 .form #map-body_mob {
   display: none;
 }

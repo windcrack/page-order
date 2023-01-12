@@ -1,6 +1,8 @@
 const inputsBlock = document.querySelectorAll('.js-input-block');
-const addressInput = document.querySelector('.form-block__address');
+const inputsBlockNoTextarea = document.querySelectorAll('.js-input-block:not(.js-no-req)');
 const navLink = document.querySelectorAll('.header-nav__link');
+
+const addressInput = document.querySelector('.form-block__address');
 const mobMenuLists = document.querySelector('.header-nav__mob');
 const btnMob = document.querySelector('.btn__burger');
 const headerMob = document.querySelector('.header-nav__mob');
@@ -45,6 +47,28 @@ function showAfter(arr){
 }
 
 showAfter(inputsBlock);
+
+function showValid(arr){
+    if(arr.length > 0){
+        [...arr].map(el =>{
+            // console.log(el.querySelector('.form-block__valid'));
+            let curVal = el.querySelector('.form-block__valid');
+            let input = el.querySelector('.js-input');
+            input.addEventListener('change', () =>{
+                if(input.value !== ''){
+                    curVal.style.display = 'none'
+                }else{
+                    curVal.style.display = 'block'
+                }
+            })
+            
+            return el
+        })
+    }
+}
+
+showValid(inputsBlockNoTextarea)
+
 
 function isShow(input, after){
     input.addEventListener('focus', () =>{
