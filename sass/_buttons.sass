@@ -59,3 +59,22 @@
 
         &:not([disabled]):hover
             background: var(--color-gray)
+
+    &__controls
+        position: relative
+    
+    &__burger
+        display: none
+        &:after, span
+            background: var(--color-black)
+            content: ""
+            display: block
+            
+            border-radius: 3px
+            //margin: 7px 0
+        span
+            width: 32px
+            height: 1.5px
+        &:after
+            width: 18px
+            height: 2px

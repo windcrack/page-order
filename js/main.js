@@ -1,5 +1,7 @@
 const inputsBlock = document.querySelectorAll('.js-input-block');
 const addressInput = document.querySelector('.form-block__address');
+const navLink = document.querySelectorAll('.header-nav__link');
+const mobMenuLists = document.querySelector('.header-nav__mob')
 
 let address = [];
 let def = [55.75399399999374,37.62209300000001];
@@ -28,19 +30,31 @@ function isShow(input, after){
     })
 }
 
+function moveItems(navTopItems, mobMenuLists) {
+    if(navTopItems !== null){
+        navTopItems.forEach((el, ind) => {
+            if (window.matchMedia("(max-width: 850px)").matches) {
+                if (ind >= 0) {
+                    mobMenuLists.append(el);
+                }
+            }
+        });
+    }
+}
 
+moveItems(navLink, mobMenuLists)
+
+// Карта
 
 ymaps.ready(init)
 
 function init(){
-    let suggestView = new ymaps.SuggestView('address');
+    //let suggestView = new ymaps.SuggestView('address');
     let placemark;
     let map;
 
-    addressInput.addEventListener('click', (e) =>{
-        if(e.keyPress === '13'){
-            getAddress();
-        }
+    addressInput.addEventListener('change', (e) =>{
+        getAddress();
     })
 
     function getAddress(){
@@ -59,13 +73,28 @@ function init(){
     function showResult(obj){
         let bounds = obj.properties.get('boundedBy');
         let myMap = document.querySelector('#map-body');
-        let mapState = ymaps.util.bounds.getCenterAndZoom(bounds, [myMap.width(), myMap.height()])
+        let mapState = ymaps.util.bounds.getCenterAndZoom(bounds, [myMap.clientHeight, myMap.clientWidth])
         createMap(mapState)
     }
 
+    map = new ymaps.Map('map-body', {
+        center: def,
+        zoom: 13,
+        controls: []
+    });
     
     function createMap(state){
-        map = new ymaps.Map('map-body', state);
+        
+        map.setCenter(state.center, state.zoom);
+        placemark = new ymaps.Placemark(
+            map.getCenter(), {}, {
+                iconLayout: 'default#image',
+                iconImageHref: './img/pin.png',
+                iconImageSize: [27, 39],
+                iconImageOffset: [-16, -30]
+            });
+        map.geoObjects.add(placemark);
+        //placemark.geometry.setCoordinates(state.center);
     }
 
     

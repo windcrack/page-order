@@ -1,0 +1,41 @@
+@media  (max-width: 1220px)
+    .order-body
+        grid-template-columns: 1fr
+
+    .aside-map
+        width: 100%
+
+@media (max-width: 800px) 
+    .header
+        position: relative
+        &-nav
+            display: none
+
+            &__mob
+                display: grid
+                position: absolute
+                top: 74px
+                right: 16px
+                max-width: 322px
+                width: 100%
+                min-height: 225px
+                padding: 20px
+                background: var(--color-white)
+
+            &__link
+                &:hover
+                    text-decoration: none
+            
+        &-controls
+            margin: 0 24px 0 auto
+            &__number
+                display: none
+    
+    .btn
+        &__controls
+            &:not(&_card)
+                display: none
+        &__burger
+            display: grid
+            justify-items: end
+            
