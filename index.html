@@ -71,10 +71,11 @@
                     </div>
                 </header>
                 <div class="order-block">
-                    <h2 class="order-block__title">3 товара на сумму 25 000 &#x20bd;</h2>
+                    <h2 class="order-block__title">3 товара на сумму 25 000 <span class="rub">Р</span></h2>
                     <div class="order-card">
                         <div class="order-card__img-block">
                             <img src="img/order/img1.png" alt="Утепленная стеганная куртка женская Top Hills" class="order-card__img">
+                            <h3 class="descr-title_mob">Утепленная стеганная куртка женская Top Hills</h3>
                         </div>
                         <div class="order-card__descr descr">
                             <h3 class="descr-title">Утепленная стеганная куртка женская Top Hills</h3>
@@ -113,27 +114,21 @@
                             </ul>
                         </div>
                         <div class="order-card__price price">
-                            <div class="price__main">12 000 &#x20bd;</div>
-                            <div class="price__sale">10 000 &#x20bd;</div>
+                            <div class="price__main">12 000 <span class="rub">Р</span></div>
+                            <div class="price__sale">10 000 <span class="rub">Р</span></div>
                         </div>
                         <div class="order-card__number">
                             <button class="order-card__number_minus">
-                                <!-- <svg class="order-card__number-icon" width="32" height="32">
-                                    <use xlink:href="#minus"></use>
-                                </svg> -->
                                 &#x2212;
                             </button>
                             <div class="order-card__number_total">2</div>
                             <button class="order-card__number_plus">
-                                <!-- <svg class="order-card__number-icon" width="32" height="32">
-                                    <use xlink:href="#plus"></use>
-                                </svg> -->
                                 &#x2B;
                             </button>
                         </div>
                         <div class="order-card__price price price_last">
-                            <div class="price__main">24 000 &#x20bd;</div>
-                            <div class="price__sale">20 000 &#x20bd;</div>
+                            <div class="price__main">24 000 <span class="rub">Р</span></div>
+                            <div class="price__sale">20 000 <span class="rub">Р</span></div>
                         </div>
                         <button class="order-card__delete btn">
                             <svg width="22" height="22">
@@ -153,6 +148,7 @@
                     <div class="order-card">
                         <div class="order-card__img-block">
                             <img src="img/order/img2.png" alt="Утепленная стеганная куртка женская Top Hills" class="order-card__img">
+                            <h3 class="descr-title_mob">Вязанная шапка Zolla</h3>
                         </div>
                         <div class="order-card__descr descr">
                             <h3 class="descr-title">Вязанная шапка Zolla</h3>
@@ -184,7 +180,7 @@
                         </div>
                         <div class="order-card__price price">
                             <!-- <div class="price__main">12 000 ₽</div> -->
-                            <div class="price__sale">500 &#x20bd;</div>
+                            <div class="price__sale">500 <span class="rub">Р</span></div>
                         </div>
                         <div class="order-card__number">
                             <button class="order-card__number_minus" disabled>
@@ -203,7 +199,7 @@
                         </div>
                         <div class="order-card__price price price_last">
                             <!-- <div class="price__main">24 000 ₽</div> -->
-                            <div class="price__sale">500 &#x20bd;</div>
+                            <div class="price__sale">500 <span class="rub">Р</span></div>
                         </div>
                         <button class="order-card__delete btn">
                             <svg width="22" height="22">
@@ -237,6 +233,8 @@
                                 <input class="form-block__input form-block__address js-input" id="address" type="text" placeholder="Адрес доставки" required>
                                 <span class="form-block__after">Адрес доставки</span>
                             </div>
+
+                            <div id="map-body_mob" class="aside-map__body"></div>
                         </div>
                         <div class="payment">
                             <h3 class="contact__title">Оплата</h3>
@@ -258,7 +256,7 @@
                         <div class="comment">
                             <h3 class="contact__title">Комментарий к заказу</h3>
                             <div class="comment__body js-input-block">
-                                <textarea name="" id="" class="comment__text js-input" placeholder="Комментарий к заказу"></textarea>
+                                <textarea name="" id="" maxlength="142" class="comment__text js-input" placeholder="Комментарий к заказу"></textarea>
                                 <span class="form-block__after">Комментарий к заказу</span>
                             </div>
                             <div class="comment__count">Использовано: <span class="comment__count-start">0</span>/<span class="comment__count-total">142</span></div>
@@ -303,7 +301,7 @@
                     </div>
                     <form class="aside-block__total"> 
                         <div class="aside-block__total-text">Итого:</div>
-                        <div class="aside-block__total-number">20 700 &#x20bd;</div>
+                        <div class="aside-block__total-number">20 700 <span class="rub">Р</span></div>
                         <div class="aside-block__total-promo js-input-block">
                             <input type="text" name="" id="" class="aside-block__total-input js-input" placeholder="Введите промокод">
                             <span class="form-block__after">Введите промокод</span>

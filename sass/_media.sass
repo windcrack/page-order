@@ -5,26 +5,35 @@
     .aside-map
         width: 100%
 
-@media (max-width: 800px) 
+@media (max-width: 850px) 
     .header
         position: relative
+        border: none
+        margin: 0 0 5px
         &-nav
             display: none
 
             &__mob
-                display: grid
+                display: none
+                grid-auto-rows: max-content 
                 position: absolute
                 top: 74px
                 right: 16px
                 max-width: 322px
                 width: 100%
-                min-height: 225px
                 padding: 20px
                 background: var(--color-white)
+                box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1)
 
             &__link
+                line-height: 45px
+                padding: 0 16px
+                &_active
+                    text-decoration: none
+                    background: var(--color-gray-trans)
                 &:hover
                     text-decoration: none
+                    background: var(--color-gray-trans)
             
         &-controls
             margin: 0 24px 0 auto
@@ -38,4 +47,112 @@
         &__burger
             display: grid
             justify-items: end
+
+        &__return
+            grid-column: 1 / span 2
+            grid-row: 2
+            width: fit-content
+        &__close
+            align-self: start
+    .order
+        &-delete
+            padding: 12px 8px
+            display: grid
+            grid-template-columns: 1fr 22px
+
+            &__text
+                margin: 0
+
+        &-body
+            &__left
+                gap: 1rem
+        &-header
+            flex-flow: column
+            gap: 10px 0
+            margin: 0 0 40px
+
+            &__login
+                align-self: flex-start
+            &__title
+                font-size: 28px
+                line-height: 30px
             
+        &-block
+            &__title
+                font-size: 24px
+                line-height: 30px
+                max-width: 187px
+                margin: 0
+        &-card
+            display: grid
+            grid-template-columns: repeat(3, 1fr)
+            grid-template-areas: "img img img" "descr descr descr" "price number total"
+            position: relative
+            row-gap: 1rem
+            &__price, &__number
+                margin: 0
+                font-size: 16px
+                line-height: 21px
+
+            &__number
+                width: fit-content
+                justify-self: center
+            &__img
+                width: 90px
+                height: 111px
+                &-block
+                    grid-area: img
+                    display: flex
+                    column-gap: 20px
+                    width: 100%
+                    height: fit-content
+            &__number
+                grid-area: number
+                gap: 22px
+            &__delete
+                position: absolute
+                top: 25px
+                right: 0
+
+    .price
+        grid-area: price
+
+        &_last
+            grid-area: total
+            justify-self: center
+            //padding-right: 16px
+    .descr
+        grid-area: descr
+        &-title
+            display: none
+            &_mob
+                max-width: 160px
+                display: inline
+                font-weight: 400
+                font-size: 14px
+                line-height: 18px
+    
+    .form
+        grid-template-columns: 1fr
+        &-block
+            &_address
+                grid-column: auto
+
+        #map-body_mob
+            display: block
+    .aside
+        &-map
+            display: none
+            &__body
+                height: 220px
+
+    .comment
+        margin: 0
+
+@media (max-width: 320px) 
+    .price
+        grid-area: price
+
+        &_last
+            grid-area: total
+            padding-right: 6px

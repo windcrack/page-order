@@ -1,10 +1,39 @@
 const inputsBlock = document.querySelectorAll('.js-input-block');
 const addressInput = document.querySelector('.form-block__address');
 const navLink = document.querySelectorAll('.header-nav__link');
-const mobMenuLists = document.querySelector('.header-nav__mob')
+const mobMenuLists = document.querySelector('.header-nav__mob');
+const btnMob = document.querySelector('.btn__burger');
+const headerMob = document.querySelector('.header-nav__mob');
+const curSymb = document.querySelector('.comment__count-start');
+const commnetSymb = document.querySelector('.comment__text');
 
-let address = [];
+
+function calcSymbol(){
+    commnetSymb.addEventListener('keyup', () =>{
+        curSymb.innerHTML = commnetSymb.value.length;
+    })
+    
+}
+
+calcSymbol();
+
+
 let def = [55.75399399999374,37.62209300000001];
+
+
+function isShowBlock(btn, block){
+    document.addEventListener('click', (e) =>{
+        if(! e.composedPath().includes(btn)){
+            block.classList.remove('grid');
+        }else{
+            block.classList.toggle('grid');
+        }
+        
+    })
+}
+
+isShowBlock(btnMob, headerMob)
+
 function showAfter(arr){
     if(arr.length > 0){
         arr.forEach((elem) => {
@@ -49,7 +78,7 @@ moveItems(navLink, mobMenuLists)
 ymaps.ready(init)
 
 function init(){
-    //let suggestView = new ymaps.SuggestView('address');
+    
     let placemark;
     let map;
 
@@ -61,9 +90,6 @@ function init(){
             let cur = addressInput.value
             ymaps.geocode(cur).then((res) => {
                 let obj = res.geoObjects.get(0)
-                
-                //address = obj.geometry._coordinates;
-                // console.log(obj.properties.get('boundedBy'));
                 showResult(obj)
             }, function(e){
                 console.log(e);
@@ -72,7 +98,7 @@ function init(){
 
     function showResult(obj){
         let bounds = obj.properties.get('boundedBy');
-        let myMap = document.querySelector('#map-body');
+        let myMap = window.matchMedia("(max-width: 850px)").matches ? document.querySelector('#map-body_mob') : document.querySelector('#map-body');
         let mapState = ymaps.util.bounds.getCenterAndZoom(bounds, [myMap.clientHeight, myMap.clientWidth])
         createMap(mapState)
     }
@@ -82,6 +108,16 @@ function init(){
         zoom: 13,
         controls: []
     });
+
+    if(window.matchMedia("(max-width: 850px)").matches){
+        map = new ymaps.Map('map-body_mob', {
+            center: def,
+            zoom: 13,
+            controls: []
+        });
+    }
+
+    
     
     function createMap(state){
         
