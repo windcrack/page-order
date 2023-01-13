@@ -1,6 +1,7 @@
 const inputsBlock = document.querySelectorAll('.js-input-block');
 const inputsBlockNoTextarea = document.querySelectorAll('.js-input-block:not(.js-no-req)');
 const navLink = document.querySelectorAll('.header-nav__link');
+const inputs = document.querySelectorAll('.js-input');
 
 const addressInput = document.querySelector('.form-block__address');
 const mobMenuLists = document.querySelector('.header-nav__mob');
@@ -8,6 +9,43 @@ const btnMob = document.querySelector('.btn__burger');
 const headerMob = document.querySelector('.header-nav__mob');
 const curSymb = document.querySelector('.comment__count-start');
 const commnetSymb = document.querySelector('.comment__text');
+
+const buttonSize = document.querySelectorAll('.btn__size');
+const inputColor = document.querySelectorAll('.descr-color__input');
+
+const allData = []
+
+function getAllDate (){
+    buttonSize.forEach(elem =>{
+        if(elem.classList.contains('active')){
+            let obj = {
+                'size' : elem.value
+            }
+    
+            allData.push(obj)
+        }
+    })
+    
+    inputColor.forEach(elem =>{
+        if(elem.checked){
+            let obj = {
+                'color': elem.value
+            }
+            allData.push(obj)
+        }
+    })
+
+    inputs.forEach(elem => {
+        if(elem.value.length > 0){
+            let obj = {
+                [elem.placeholder]: elem.value
+            }
+            allData.push(obj)
+        }
+    })
+}
+getAllDate();
+console.log(inputs);
 
 
 function calcSymbol(){
@@ -18,10 +56,6 @@ function calcSymbol(){
 }
 
 calcSymbol();
-
-
-let def = [55.75399399999374,37.62209300000001];
-
 
 function isShowBlock(btn, block){
     document.addEventListener('click', (e) =>{
@@ -50,15 +84,21 @@ showAfter(inputsBlock);
 
 function showValid(arr){
     if(arr.length > 0){
-        [...arr].map(el =>{
-            // console.log(el.querySelector('.form-block__valid'));
+        arr.forEach(el =>{
             let curVal = el.querySelector('.form-block__valid');
             let input = el.querySelector('.js-input');
             input.addEventListener('change', () =>{
-                if(input.value !== ''){
-                    curVal.style.display = 'none'
-                }else{
+                if(input.value.length === 0){
                     curVal.style.display = 'block'
+                }else{
+                    curVal.style.display = 'none'
+                }
+            })
+            input.addEventListener('blur', () =>{
+                if(input.value.length === 0){
+                    curVal.style.display = 'block'
+                }else{
+                    curVal.style.display = 'none'
                 }
             })
             
@@ -102,7 +142,7 @@ moveItems(navLink, mobMenuLists)
 ymaps.ready(init)
 
 function init(){
-    
+    let def = [55.75399399999374,37.62209300000001];
     let placemark;
     let map;
 
