@@ -2,6 +2,7 @@
     margin: 0
     padding: 0
     box-sizing: border-box
+    scroll-behavior: smooth
 
 *::before, *::after
     margin: 0
@@ -20,6 +21,7 @@ img
     max-width: 1200px
     width: calc( 100% - 16px )
     margin: 0 auto
+    
 
 .grid
     display: grid !important
@@ -29,6 +31,14 @@ img
     width: 0.4em
     border-bottom: 1px solid #000 
     display: inline-block
+
+.to-top
+    width: 40px
+    height: 40px
+    position: absolute
+    top: -6rem
+    right: 0
+
  
 @import options, fonts, header, buttons, breadcrums, order, checkbox, radio, footer, done, media
 

@@ -3,8 +3,8 @@ const inputsBlockNoTextarea = document.querySelectorAll('.js-input-block:not(.js
 const navLink = document.querySelectorAll('.header-nav__link');
 const inputs = document.querySelectorAll('.js-input');
 const payments = document.querySelectorAll('.payment__input');
-
 const orderCard = document.querySelectorAll('.order-card')
+
 const addressInput = document.querySelector('.form-block__address');
 const mobMenuLists = document.querySelector('.header-nav__mob');
 const headerMob = document.querySelector('.header-nav__mob');
@@ -60,9 +60,6 @@ function getAllDate (){
     console.log(obj);
     return FomData.push(obj)
 }
-
-console.log(totalBlock);
-
 
 function createDoneBlock(){
     let div = document.createElement('div');
@@ -127,7 +124,6 @@ function changeCountProduct(){
         let count = elem.querySelector('.order-card__number_total');
 
         btnIncriment.addEventListener('click', ()=>{
-            console.log('click');
             let curCount = +count.innerHTML
             curCount++;
             if(curCount > 1) btnDecriment.disabled = false;

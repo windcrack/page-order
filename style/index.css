@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *::before, *::after {
@@ -35,6 +36,14 @@ img {
   width: 0.4em;
   border-bottom: 1px solid #000;
   display: inline-block;
+}
+
+.to-top {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: -6rem;
+  right: 0;
 }
 
 :root {
@@ -826,9 +835,15 @@ img {
   background-color: #e9ecef;
 }
 
+footer {
+  border-top: 0.5px solid var(--color-gray-ligth);
+  padding: 30px 0;
+}
+
 .footer {
   display: grid;
   gap: 101px;
+  position: relative;
 }
 .footer-row, .footer-copy {
   display: flex;
