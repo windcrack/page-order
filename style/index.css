@@ -44,6 +44,10 @@ img {
   position: absolute;
   top: -6rem;
   right: 0;
+  transition: all var(--effect-transition);
+}
+.to-top__img:hover {
+  fill: var(--color-black);
 }
 
 :root {
