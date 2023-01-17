@@ -3,7 +3,7 @@
         display: grid
         grid-template-columns: 1fr 400px
         gap: 40px
-
+        margin: 0 0 80px
         &__left
             display: grid
             gap: 187px
@@ -136,12 +136,15 @@
         margin: 0 0 12px
 
         &__item
-            
-            &_active
-                .btn__size
-                    background: var(--color-black)
-                    color: var(--color-white)
-            
+            &-input
+                display: none
+                &:checked
+                    & ~ .btn__size
+                        background: var(--color-black)
+                        color: var(--color-white)
+                &:disabled
+                    & ~ .btn__size
+                        color: var(--color-gray-ligth)
 
             
     &-color
@@ -213,6 +216,10 @@
     padding: 30px 20px
     height: fit-content
 
+    &__done
+        color: var(--color-green)
+        text-align: center
+
     &__list
         list-style: none
         padding: 0 0 20px
@@ -282,6 +289,7 @@
             grid-column: 1 / span 3
             width: 100%
             position: relative
+            margin: 0 0 20px
             
             
         
@@ -346,6 +354,12 @@
             padding: 0 5px
             color: var(--color-gray)
 
+        &__promo
+
+            &-fail
+                color: var(--color-red)
+            &-sucsess
+                color: var(--color-green)
         &__input
             width: 100%
             padding: 15px 20px

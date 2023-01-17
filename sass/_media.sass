@@ -24,6 +24,7 @@
                 padding: 20px
                 background: var(--color-white)
                 box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1)
+                z-index: 10
 
             &__link
                 line-height: 45px
@@ -64,6 +65,7 @@
                 margin: 0
 
         &-body
+            margin: 0 0 40px
             &__left
                 gap: 1rem
         &-header
@@ -148,6 +150,20 @@
 
     .comment
         margin: 0
+
+    .footer
+        gap: 40px
+        &-row
+            flex-flow: column
+            row-gap: 20px
+        &-nav
+            display: grid 
+            grid-template-columns: repeat(auto-fit, 50%)
+            row-gap: 20px
+            column-gap: 0 
+
+        &-copy
+            display: grid
 
 @media (max-width: 320px) 
     .price

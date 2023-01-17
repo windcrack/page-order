@@ -2,60 +2,151 @@ const inputsBlock = document.querySelectorAll('.js-input-block');
 const inputsBlockNoTextarea = document.querySelectorAll('.js-input-block:not(.js-no-req)');
 const navLink = document.querySelectorAll('.header-nav__link');
 const inputs = document.querySelectorAll('.js-input');
+const payments = document.querySelectorAll('.payment__input');
 
+const orderCard = document.querySelectorAll('.order-card')
 const addressInput = document.querySelector('.form-block__address');
 const mobMenuLists = document.querySelector('.header-nav__mob');
-const btnMob = document.querySelector('.btn__burger');
 const headerMob = document.querySelector('.header-nav__mob');
 const curSymb = document.querySelector('.comment__count-start');
 const commnetSymb = document.querySelector('.comment__text');
+const howDeviliry = document.querySelector('.aside-block__deviliry-radio');
+const totalSumm = document.querySelector('.aside-block__total-number');
 
-const buttonSize = document.querySelectorAll('.btn__size');
-const inputColor = document.querySelectorAll('.descr-color__input');
 
-const allData = []
+const buttonOrder = document.querySelector('.btn__order');
+const btnMob = document.querySelector('.btn__burger');
+const btnApply = document.querySelector('.btn__promo');
+const btnAddress = document.querySelector('.btn__address');
+
+const inputPromo = document.querySelector('.js-input-promo');
+const sucsessPromo = document.querySelector('.form-block__promo-sucsess');
+const failPromo = document.querySelector('.form-block__promo-fail');
+
+const inputEmail = document.querySelector('.js-email');
+const btnSaleFooter = document.querySelector('.btn__sale-footer');
+
+const totalBlock = document.querySelector('.aside-block');
+
+const FomData = []
+
+let mokPromo = '1B6D9FC'
 
 function getAllDate (){
-    buttonSize.forEach(elem =>{
-        if(elem.classList.contains('active')){
-            let obj = {
-                'size' : elem.value
-            }
-    
-            allData.push(obj)
-        }
-    })
-    
-    inputColor.forEach(elem =>{
-        if(elem.checked){
-            let obj = {
-                'color': elem.value
-            }
-            allData.push(obj)
-        }
-    })
+    let obj = {}
 
+    obj['card'] = getInfoCard();
+    
     inputs.forEach(elem => {
         if(elem.value.length > 0){
-            let obj = {
-                [elem.placeholder]: elem.value
-            }
-            allData.push(obj)
+            obj[elem.placeholder] = elem.value
         }
     })
-}
-getAllDate();
-console.log(inputs);
 
+    payments.forEach((payment) => {
+        if(payment.checked){
+            obj['payment'] = payment.value
+        }
+    })
+
+    if(howDeviliry.checked){
+        obj['Доставка'] = "Со склада"
+    }else{
+        obj['Доставка'] = "Курьером"
+    }
+
+    obj['Итого'] = totalSumm.innerText
+    
+    console.log(obj);
+    return FomData.push(obj)
+}
+
+console.log(totalBlock);
+
+
+function createDoneBlock(){
+    let div = document.createElement('div');
+    div.classList.add('aside-block__done')
+    div.innerHTML = `
+    <svg class="done" width="64" height="64">
+      <use xlink:href="#done"></use>
+    </svg>
+    <p>Спасибо за Ваш заказа. В ближашее время с Вами свяжется наш менеджер для подтвеждения заказа.</p>
+    `;
+    totalBlock.innerHTML = '';
+    totalBlock.append(div);
+}
+
+buttonOrder.addEventListener('click', e =>{
+    e.preventDefault();
+    createDoneBlock();
+
+    getAllDate();
+})
 
 function calcSymbol(){
     commnetSymb.addEventListener('keyup', () =>{
         curSymb.innerHTML = commnetSymb.value.length;
     })
-    
 }
 
 calcSymbol();
+
+function getInfoCard(){
+    let result = []
+    orderCard.forEach(elem =>{
+        let title = elem.querySelector('.descr-title').innerHTML;
+        let article = elem.querySelector('.descr-article span').innerHTML;
+        let count = elem.querySelector('.order-card__number_total').innerHTML;
+
+        let sizes = elem.querySelectorAll('.descr-size__item-input');
+        let colors = elem.querySelectorAll('.descr-color__input');
+        let selectSize, selectColor;
+
+        sizes.forEach(size =>{
+            if(size.checked){
+                selectSize = size.value
+            }
+        })
+
+        colors.forEach(color =>{
+            if(color.checked){
+                selectColor = color.value
+            }
+        })
+        result.push({title, article, selectSize, selectColor, count});
+    })
+
+    return result
+}
+
+function changeCountProduct(){
+    orderCard.forEach(elem =>{
+        let btnIncriment = elem.querySelector('.order-card__number_plus');
+        let btnDecriment = elem.querySelector('.order-card__number_minus');
+        let count = elem.querySelector('.order-card__number_total');
+
+        btnIncriment.addEventListener('click', ()=>{
+            console.log('click');
+            let curCount = +count.innerHTML
+            curCount++;
+            if(curCount > 1) btnDecriment.disabled = false;
+            count.innerHTML = curCount;
+        })
+
+        btnDecriment.addEventListener('click', ()=>{
+            let curCount = +count.innerHTML
+            curCount--
+            if(curCount <= 0){
+                btnDecriment.disabled = true;
+                return false;
+            };
+            count.innerHTML = curCount;
+        })
+    })
+}
+
+changeCountProduct();
 
 function isShowBlock(btn, block){
     document.addEventListener('click', (e) =>{
@@ -64,7 +155,6 @@ function isShowBlock(btn, block){
         }else{
             block.classList.toggle('grid');
         }
-        
     })
 }
 
@@ -201,5 +291,46 @@ function init(){
 }
 
 
+function addText(){
+    if(inputPromo.value === mokPromo){
+        sucsessPromo.innerHTML = `${inputPromo.value}- купон применен`;
+    }else{
+        failPromo.innerHTML = `${inputPromo.value} - купон не найден`;
+    }
+}
 
+function isShowPromoMessange(){
+    btnApply.addEventListener('click', e=>{
+        e.preventDefault();
+        addText();
+    });
+    inputPromo.addEventListener('change', addText);
 
+    isShowButton(inputPromo, btnApply);
+}
+
+function isShowButton(elem, btn, type = 'block'){
+    elem.addEventListener('focus', () =>{
+        btn.style.display = type;
+    });
+    
+    elem.addEventListener('blur', () =>{
+        btn.style.display = 'none';
+    })
+}
+
+function sendEmail(){
+    btnSaleFooter.addEventListener('click', () =>{
+        if(inputEmail.value.length > 0){
+            console.log('sendEmail:', inputEmail.value);
+        }
+    })
+    
+}
+
+sendEmail();
+
+isShowButton(addressInput, btnAddress)
+isShowButton(inputEmail, btnSaleFooter, 'flex')
+
+isShowPromoMessange();
