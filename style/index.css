@@ -319,7 +319,7 @@ img {
   line-height: 30px;
   margin: 0 0 30px;
 }
-.order-card {
+.order-card__wrapper {
   display: flex;
   justify-content: space-between;
   padding: 25px 0;
@@ -374,6 +374,7 @@ img {
 }
 .order-card__delete {
   height: fit-content;
+  font-size: 24px;
 }
 .order-delete {
   width: 100%;

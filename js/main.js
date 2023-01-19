@@ -5,6 +5,7 @@ const inputs = document.querySelectorAll('.js-input');
 const payments = document.querySelectorAll('.payment__input');
 const orderCard = document.querySelectorAll('.order-card');
 
+const orderBlock = document.querySelector('.order-block');
 const addressInput = document.querySelector('.form-block__address');
 const mobMenuLists = document.querySelector('.header-nav__mob');
 const headerMob = document.querySelector('.header-nav__mob');
@@ -18,6 +19,7 @@ const buttonOrder = document.querySelector('.btn__order');
 const btnMob = document.querySelector('.btn__burger');
 const btnApply = document.querySelector('.btn__promo');
 const btnAddress = document.querySelector('.btn__address');
+const btnClose = document.querySelectorAll('.btn__close');
 
 const inputPromo = document.querySelector('.js-input-promo');
 const sucsessPromo = document.querySelector('.form-block__promo-sucsess');
@@ -76,7 +78,7 @@ function createDoneBlock(){
 
 function deleteElem(){
     let divDelete = document.createElement('div');
-    divDelete.classList.add('.order-delete');
+    divDelete.classList.add('order-delete');
     divDelete.innerHTML = `
     <div class="order-delete__text">Товар <b>Наименование товара</b> был удален из корзины.</div>
     <button class="btn btn__return">Восстановить</button>
@@ -86,18 +88,59 @@ function deleteElem(){
         </svg>
     </button>
     `;
-    orderCard.forEach((elem, index) =>{
-        let deleteBtn = elem.querySelector('.order-card__delete');
-        let card = elem.querySelector('.order-card')
-        deleteBtn.addEventListener('click', ()=>{
-            card = elemChash;
-            console.log([card, elemChash]);
-            card.innerHTML = divDelete;
+    let orderCards = orderBlock.querySelectorAll('.order-card');
+    orderCards.forEach((elem, index) =>{
+        
+        elem.addEventListener('click', e =>{
+            
+            let btnDelete = e.target.closest('.order-card__delete');
+            
+            if(!btnDelete){
+                return false;
+            }else{
+                elemChash = elem.cloneNode(true);
+                elem.innerHTML = divDelete.outerHTML;
+            }
+        })
+        elem.addEventListener('click', e =>{
+            let btnReturn = e.target.closest('.btn__return');
+            if(!btnReturn){
+                return false;
+            }else{
+                elem.innerHTML = elemChash.outerHTML;
+                changeCountProduct();
+                
+            }
+        })
+        elem.addEventListener('click', e =>{
+            let btnReturn = e.target.closest('.btn__close');
+            if(!btnReturn){
+                return false;
+            }else{
+                removeElement(btnReturn);
+            }
+        })
+    });
+}
+
+deleteElem();
+
+
+function removeAll(){
+    btnClose.forEach(btn =>{
+        btn.addEventListener('click', () =>{
+            elemChash = null;
+            removeElement(btn);
         })
     })
 }
 
-deleteElem();
+removeAll();
+
+function removeElement(btn){
+    elemChash = null;
+    btn.parentElement.remove();
+}
 
 buttonOrder.addEventListener('click', e =>{
     e.preventDefault();
@@ -192,6 +235,7 @@ function showAfter(arr){
 
 showAfter(inputsBlock);
 
+// Отображение и стилизация импута если он не валидный.
 function showValid(arr){
     if(arr.length > 0){
         arr.forEach(el =>{
@@ -237,7 +281,7 @@ function isShow(input, after){
         }
     })
 }
-
+// Перекидываение блока с навигацией 2.0
 function moveItems(navTopItems, mobMenuLists) {
     let isEvent = false;
     if(navTopItems !== null){
