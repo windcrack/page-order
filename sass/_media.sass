@@ -86,11 +86,12 @@
                 max-width: 187px
                 margin: 0
         &-card
-            display: grid
-            grid-template-columns: repeat(3, 1fr)
-            grid-template-areas: "img img img" "descr descr descr" "price number total"
-            position: relative
-            row-gap: 1rem
+            &__wrapper
+                display: grid
+                grid-template-columns: repeat(3, 1fr)
+                grid-template-areas: "img img img" "descr descr descr" "price number total"
+                position: relative
+                row-gap: 1rem
             &__price, &__number
                 margin: 0
                 font-size: 16px

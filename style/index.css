@@ -1076,7 +1076,7 @@ footer {
     max-width: 187px;
     margin: 0;
   }
-  .order-card {
+  .order-card__wrapper {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: "img img img" "descr descr descr" "price number total";

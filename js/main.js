@@ -33,6 +33,7 @@ const totalBlock = document.querySelector('.aside-block');
 const FomData = []
 let elemChash;
 
+
 let mokPromo = '1B6D9FC';
 
 function getAllDate (){
@@ -62,6 +63,19 @@ function getAllDate (){
     
     return FomData.push(obj)
 }
+
+function checkAllValidInfo(){
+    
+    buttonOrder.addEventListener('click', e =>{
+        buttonOrder.disabled = false;
+        e.preventDefault();
+        createDoneBlock();
+        getAllDate();
+    })
+}
+
+
+checkAllValidInfo();
 
 function createDoneBlock(){
     let div = document.createElement('div');
@@ -142,11 +156,6 @@ function removeElement(btn){
     btn.parentElement.remove();
 }
 
-buttonOrder.addEventListener('click', e =>{
-    e.preventDefault();
-    createDoneBlock();
-    getAllDate();
-})
 
 function calcSymbol(){
     commnetSymb.addEventListener('keyup', () =>{
@@ -269,17 +278,45 @@ function showValid(arr){
 showValid(inputsBlockNoTextarea)
 
 
+function isValidAll(inputs){
+    
+    inputs.forEach(input => {
+        if(input.value.length === 0){
+            buttonOrder.disabled = true
+            buttonOrder.textContent = 'Заполните все поля'   
+        }
+        input.addEventListener('change', () =>{
+            if(input.value.length === 0){
+                
+                buttonOrder.disabled = true
+                buttonOrder.textContent = 'Заполните все поля'
+                
+            }else{
+                buttonOrder.disabled = false
+                buttonOrder.textContent = 'Отправить'
+            }
+        })
+        
+        
+    })
+}
+
+isValidAll(inputs);
+
 function isShow(input, after){
+    
     input.addEventListener('focus', () =>{
         after.style.display = 'block'
     });
     input.addEventListener('blur', () =>{
         if(input.value !== ""){
             after.style.display = 'block'
+            isValid = true
         }else{
             after.style.display = 'none'
         }
     })
+    
 }
 // Перекидываение блока с навигацией 2.0
 function moveItems(navTopItems, mobMenuLists) {
