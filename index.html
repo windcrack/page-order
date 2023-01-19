@@ -193,7 +193,7 @@
                             </ul>
                         </div>
                         <div class="order-card__price price">
-                            <!-- <div class="price__main">12 000 ₽</div> -->
+                            <div class="price__main"></div>
                             <div class="price__sale">500 <span class="rub">Р</span></div>
                         </div>
                         <div class="order-card__number">
@@ -212,7 +212,7 @@
                             </button>
                         </div>
                         <div class="order-card__price price price_last">
-                            <!-- <div class="price__main">24 000 ₽</div> -->
+                            <div class="price__main"></div>
                             <div class="price__sale">500 <span class="rub">Р</span></div>
                         </div>
                         <button class="order-card__delete btn">
@@ -324,9 +324,10 @@
                     <form class="aside-block__total"> 
                         <div class="aside-block__total-text">Итого:</div>
                         <div class="aside-block__total-number">20 700 <span class="rub">Р</span></div>
-                        <div class="aside-block__total-promo js-input-block js-no-req">
-                            <input type="text" name="" id="" class="aside-block__total-input js-input js-input-promo" placeholder="Введите промокод">
+                        <div class="aside-block__total-promo js-input-block">
+                            <input type="text" name="" id="" class="aside-block__total-input js-input js-input-promo" required placeholder="Введите промокод">
                             <span class="form-block__after">Введите промокод</span>
+                            <span class="form-block__valid">Пожалуйста, введите промокод</span>
                             <span class="form-block__promo-fail"></span>
                             <span class="form-block__promo-sucsess"></span>
                             <button class="btn btn__promo">Применить</button>
@@ -356,9 +357,10 @@
                         <h3>Скидка 10% за подписку на наши новости</h3>
                     </div>
                     <form action="" class="footer-sale__form">
-                        <div class="footer-sale__body js-input-block js-no-req">
-                            <input class="form-block__input js-input js-email" placeholder="example@mail.ru"></input>
+                        <div class="footer-sale__body js-input-block">
+                            <input class="form-block__input js-input js-email" required placeholder="example@mail.ru" />
                             <span class="form-block__after">example@mail.ru</span>
+                            <span class="form-block__valid">Пожалуйста, введите email</span>
                             <button class="btn btn__sale-footer">
                                 <svg class="btn__icon" width="20" height="20">
                                     <use xlink:href="#search"></use>

@@ -3,7 +3,7 @@ const inputsBlockNoTextarea = document.querySelectorAll('.js-input-block:not(.js
 const navLink = document.querySelectorAll('.header-nav__link');
 const inputs = document.querySelectorAll('.js-input');
 const payments = document.querySelectorAll('.payment__input');
-const orderCard = document.querySelectorAll('.order-card')
+const orderCard = document.querySelectorAll('.order-card');
 
 const addressInput = document.querySelector('.form-block__address');
 const mobMenuLists = document.querySelector('.header-nav__mob');
@@ -29,8 +29,9 @@ const btnSaleFooter = document.querySelector('.btn__sale-footer');
 const totalBlock = document.querySelector('.aside-block');
 
 const FomData = []
+let elemChash;
 
-let mokPromo = '1B6D9FC'
+let mokPromo = '1B6D9FC';
 
 function getAllDate (){
     let obj = {}
@@ -57,7 +58,6 @@ function getAllDate (){
 
     obj['Итого'] = totalSumm.innerText
     
-    console.log(obj);
     return FomData.push(obj)
 }
 
@@ -74,10 +74,34 @@ function createDoneBlock(){
     totalBlock.append(div);
 }
 
+function deleteElem(){
+    let divDelete = document.createElement('div');
+    divDelete.classList.add('.order-delete');
+    divDelete.innerHTML = `
+    <div class="order-delete__text">Товар <b>Наименование товара</b> был удален из корзины.</div>
+    <button class="btn btn__return">Восстановить</button>
+    <button class="btn btn__close">
+        <svg width="22" height="22">
+            <use xlink:href="#cross"></use>
+        </svg>
+    </button>
+    `;
+    orderCard.forEach((elem, index) =>{
+        let deleteBtn = elem.querySelector('.order-card__delete');
+        let card = elem.querySelector('.order-card')
+        deleteBtn.addEventListener('click', ()=>{
+            card = elemChash;
+            console.log([card, elemChash]);
+            card.innerHTML = divDelete;
+        })
+    })
+}
+
+deleteElem();
+
 buttonOrder.addEventListener('click', e =>{
     e.preventDefault();
     createDoneBlock();
-
     getAllDate();
 })
 
@@ -173,18 +197,23 @@ function showValid(arr){
         arr.forEach(el =>{
             let curVal = el.querySelector('.form-block__valid');
             let input = el.querySelector('.js-input');
+            let after = el.querySelector('.form-block__after');
             input.addEventListener('change', () =>{
                 if(input.value.length === 0){
                     curVal.style.display = 'block'
+                    after.style.color = 'var(--color-red)'
                 }else{
                     curVal.style.display = 'none'
+                    after.style.color = 'var(--color-gray)'
                 }
             })
             input.addEventListener('blur', () =>{
                 if(input.value.length === 0){
                     curVal.style.display = 'block'
+                    after.style.color = 'var(--color-red)'
                 }else{
                     curVal.style.display = 'none'
+                    after.style.color = 'var(--color-gray)'
                 }
             })
             
@@ -210,14 +239,18 @@ function isShow(input, after){
 }
 
 function moveItems(navTopItems, mobMenuLists) {
+    let isEvent = false;
     if(navTopItems !== null){
-        navTopItems.forEach((el, ind) => {
-            if (window.matchMedia("(max-width: 850px)").matches) {
-                if (ind >= 0) {
-                    mobMenuLists.append(el);
-                }
+        window.addEventListener('resize', () =>{
+            if(!isEvent && window.matchMedia("(max-width: 850px)").matches){
+                navTopItems.forEach((el, ind) => {
+                    if (ind >= 0) {
+                        mobMenuLists.append(el);
+                    }
+                });
+                isEvent = true
             }
-        });
+        })
     }
 }
 
@@ -231,6 +264,7 @@ function init(){
     let def = [55.75399399999374,37.62209300000001];
     let placemark;
     let map;
+    let isEvent = false;
 
     addressInput.addEventListener('change', (e) =>{
         getAddress();
@@ -258,15 +292,16 @@ function init(){
         zoom: 13,
         controls: []
     });
-
-    if(window.matchMedia("(max-width: 850px)").matches){
-        map = new ymaps.Map('map-body_mob', {
-            center: def,
-            zoom: 13,
-            controls: []
-        });
-    }
-
+    window.addEventListener('resize', () =>{
+        if(window.matchMedia("(max-width: 850px)").matches && !isEvent){
+            map = new ymaps.Map('map-body_mob', {
+                center: def,
+                zoom: 13,
+                controls: []
+            });
+            isEvent = true
+        }
+    })
     
     
     function createMap(state){

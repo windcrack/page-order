@@ -618,6 +618,11 @@ img {
 .form-block_address {
   grid-column: 1/span 2;
 }
+.form-block__valid {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+}
 .form-block__after {
   display: none;
   position: absolute;

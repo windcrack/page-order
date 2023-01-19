@@ -343,6 +343,11 @@
         position: relative
         &_address
             grid-column: 1 / span 2
+
+        &__valid
+            font-weight: 400
+            font-size: 12px
+            line-height: 15px
         &__after
             display: none
             position: absolute
@@ -353,6 +358,7 @@
             background: var(--color-white)
             padding: 0 5px
             color: var(--color-gray)
+            
 
         &__promo
 
@@ -365,6 +371,12 @@
             padding: 15px 20px
             border: 1px solid var(--color-gray-ligth)
             outline: none
+
+            // &:invalid
+            //     border: 1px solid var(--color-red)
+
+            //     .form-block__after
+            //         color: var(--color-red)
 
         &__valid
             margin-top: 4px
@@ -410,3 +422,5 @@
         line-height: 15px
         color: var(--color-gray)
         margin-left: 20px
+
+        
