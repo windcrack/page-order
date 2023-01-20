@@ -228,30 +228,30 @@
                 </div>
                 <section class="contact">
                     <h2 class="contact__title contact__title_main">Контактные данные</h2>
-                    <form class="contact__body" action="" method="POST">
+                    <form class="contact__body" name="conctact" action="" method="POST" onsubmit="return isValidForm()">
                         <div class="form">
                             <div class="form-block js-input-block">
-                                <input class="form-block__input js-input" type="text" placeholder="Имя" required>
+                                <input class="form-block__input js-input" type="text" name="user_name" placeholder="Имя" required>
                                 <span class="form-block__after">Имя</span>
                                 <span class="form-block__valid">Пожалуйста, введите Имя</span>
                             </div>
                             <div class="form-block js-input-block">
-                                <input class="form-block__input js-input" type="text" placeholder="Фамилия" required>
+                                <input class="form-block__input js-input" type="text" name="user_second" placeholder="Фамилия" required>
                                 <span class="form-block__after">Фамилия</span>
                                 <span class="form-block__valid">Пожалуйста, введите Фамилию</span>
                             </div>
                             <div class="form-block js-input-block">
-                                <input class="form-block__input js-input" type="text" placeholder="Телефон" required>
+                                <input class="form-block__input js-input" type="text" name="user_phone" placeholder="Телефон" required>
                                 <span class="form-block__after">Телефон</span>
                                 <span class="form-block__valid">Пожалуйста, введите Телефон</span>
                             </div>
                             <div class="form-block js-input-block">
-                                <input class="form-block__input js-input" type="text" placeholder="Email" required>
+                                <input class="form-block__input js-input" type="text" name="user_email" placeholder="Email" required>
                                 <span class="form-block__after">Email</span>
                                 <span class="form-block__valid">Пожалуйста, введите Email</span>
                             </div>
                             <div class="form-block form-block_address js-input-block">
-                                <input class="form-block__input form-block__address js-input" id="address" type="text" placeholder="Адрес доставки" required>
+                                <input class="form-block__input form-block__address js-input" id="address" name="user_address" type="text" placeholder="Адрес доставки" required>
                                 <span class="form-block__after">Адрес доставки</span>
                                 <span class="form-block__valid">Пожалуйста, введите Адрес доставки</span>
                                 <button class="btn btn__address">
@@ -325,11 +325,11 @@
                             </label>
                         </div>
                     </div>
-                    <form class="aside-block__total"> 
+                    <form class="aside-block__total" method="POST">
                         <div class="aside-block__total-text">Итого:</div>
                         <div class="aside-block__total-number">20 700 <span class="rub">Р</span></div>
                         <div class="aside-block__total-promo js-input-block">
-                            <input type="text" name="" id="" class="aside-block__total-input js-input js-input-promo" required placeholder="Введите промокод">
+                            <input type="text" name="" id="" class="aside-block__total-input js-input js-input-promo" placeholder="Введите промокод" required>
                             <span class="form-block__after">Введите промокод</span>
                             <span class="form-block__valid">Пожалуйста, введите промокод</span>
                             <span class="form-block__promo-fail"></span>
@@ -490,6 +490,7 @@
             </symbol>
         </defs>
     </svg>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=4d3223b0-a2d8-4af8-a6ad-e0d14809a077&lang=ru_RU"></script>
     <script src="js/main.js"></script>
 </body>

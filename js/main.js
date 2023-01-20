@@ -14,7 +14,6 @@ const commnetSymb = document.querySelector('.comment__text');
 const howDeviliry = document.querySelector('.aside-block__deviliry-radio');
 const totalSumm = document.querySelector('.aside-block__total-number');
 
-
 const buttonOrder = document.querySelector('.btn__order');
 const btnMob = document.querySelector('.btn__burger');
 const btnApply = document.querySelector('.btn__promo');
@@ -60,22 +59,42 @@ function getAllDate (){
     }
 
     obj['Итого'] = totalSumm.innerText
-    
+    console.log('FomData', obj);
     return FomData.push(obj)
 }
 
-function checkAllValidInfo(){
+function isValidForm(){
+    const contacts = document.forms.conctact;
+    const obj = {
+        user_name: contacts.elements.user_name,
+        user_second: contacts.elements.user_second,
+        user_email: contacts.elements.user_email,
+        user_phone: contacts.elements.user_phone,
+        user_address: contacts.elements.user_address,
+    }
     
-    buttonOrder.addEventListener('click', e =>{
-        buttonOrder.disabled = false;
+    buttonOrder.addEventListener('click', (e) =>{
         e.preventDefault();
-        createDoneBlock();
-        getAllDate();
+        
+            if(obj.user_name.value === "" ||
+            obj.user_second.value === "" ||
+            obj.user_phone.value === "" ||
+            obj.user_email.value === "" ||
+            obj.user_address.value === "" ||
+            inputPromo.value === ""){
+                alert('Пожлауйста, заполните все поле');
+                return false;
+            }
+            else{
+                createDoneBlock();
+                getAllDate(); 
+            }
+        
     })
 }
 
+isValidForm();
 
-checkAllValidInfo();
 
 function createDoneBlock(){
     let div = document.createElement('div');
@@ -277,32 +296,6 @@ function showValid(arr){
 
 showValid(inputsBlockNoTextarea)
 
-
-function isValidAll(inputs){
-    
-    inputs.forEach(input => {
-        if(input.value.length === 0){
-            buttonOrder.disabled = true
-            buttonOrder.textContent = 'Заполните все поля'   
-        }
-        input.addEventListener('change', () =>{
-            if(input.value.length === 0){
-                
-                buttonOrder.disabled = true
-                buttonOrder.textContent = 'Заполните все поля'
-                
-            }else{
-                buttonOrder.disabled = false
-                buttonOrder.textContent = 'Отправить'
-            }
-        })
-        
-        
-    })
-}
-
-isValidAll(inputs);
-
 function isShow(input, after){
     
     input.addEventListener('focus', () =>{
@@ -311,7 +304,6 @@ function isShow(input, after){
     input.addEventListener('blur', () =>{
         if(input.value !== ""){
             after.style.display = 'block'
-            isValid = true
         }else{
             after.style.display = 'none'
         }
@@ -339,7 +331,7 @@ moveItems(navLink, mobMenuLists)
 
 // Карта
 
-ymaps.ready(init)
+ymaps.ready(init);
 
 function init(){
     let def = [55.75399399999374,37.62209300000001];
@@ -373,6 +365,7 @@ function init(){
         zoom: 13,
         controls: []
     });
+
     window.addEventListener('resize', () =>{
         if(window.matchMedia("(max-width: 850px)").matches && !isEvent){
             map = new ymaps.Map('map-body_mob', {
