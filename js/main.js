@@ -29,6 +29,7 @@ const inputEmail = document.querySelector('.js-email');
 const btnSaleFooter = document.querySelector('.btn__sale-footer');
 
 const totalBlock = document.querySelector('.aside-block');
+const modal = document.querySelector('.modal-body');
 
 let FomData = [];
 let elemChash;
@@ -96,11 +97,11 @@ function getAllDate (){
 function isValidForm(){
     const contacts = document.forms.conctact;
     const obj = {
-        user_name: contacts.elements.user_name,
-        user_second: contacts.elements.user_second,
-        user_email: contacts.elements.user_email,
-        user_phone: contacts.elements.user_phone,
-        user_address: contacts.elements.user_address,
+        user_name: contacts.elements.user_name.value,
+        user_second: contacts.elements.user_second.value,
+        user_email: contacts.elements.user_email.value,
+        user_phone: contacts.elements.user_phone.value,
+        user_address: contacts.elements.user_address.value,
     }
     
     buttonOrder.addEventListener('click', (e) =>{
@@ -112,7 +113,17 @@ function isValidForm(){
             obj.user_email.value === "" ||
             obj.user_address.value === "" ||
             inputPromo.value === ""){
-                alert('Пожлауйста, заполните все поле');
+                modal.classList.add('grid');
+                setInterval(() => {
+                    modal.classList.remove('grid');
+                }, 2000)
+                inputs.forEach(input =>{
+                    if(input.value === ''){
+                        input.style.border = '1px solid var(--color-red)';
+                    }else{
+                        input.style.border = '1px solid var(--color-gray-ligth)';
+                    }
+                });
                 return false;
             }
             else{
@@ -122,6 +133,7 @@ function isValidForm(){
         
     })
 }
+
 
 isValidForm();
 // ------------------------
@@ -295,22 +307,27 @@ function showValid(arr){
             let curVal = el.querySelector('.form-block__valid');
             let input = el.querySelector('.js-input');
             let after = el.querySelector('.form-block__after');
+            console.log(input);
             input.addEventListener('change', () =>{
                 if(input.value.length === 0){
                     curVal.style.display = 'block'
                     after.style.color = 'var(--color-red)'
+                    input.style.border = '1px solid var(--color-red)';
                 }else{
-                    curVal.style.display = 'none'
-                    after.style.color = 'var(--color-gray)'
+                    curVal.style.display = 'none';
+                    after.style.color = 'var(--color-gray)';
+                    input.style.border = '1px solid var(--color-gray-ligth)';
                 }
             })
             input.addEventListener('blur', () =>{
                 if(input.value.length === 0){
                     curVal.style.display = 'block'
                     after.style.color = 'var(--color-red)'
+                    input.style.border = '1px solid var(--color-red)';
                 }else{
                     curVal.style.display = 'none'
                     after.style.color = 'var(--color-gray)'
+                    input.style.border = '1px solid var(--color-gray-ligth)';
                 }
             })
             
