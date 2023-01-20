@@ -5,6 +5,7 @@ const inputs = document.querySelectorAll('.js-input');
 const payments = document.querySelectorAll('.payment__input');
 const orderCard = document.querySelectorAll('.order-card');
 
+const paymentBlock = document.querySelector('.payment');
 const orderBlock = document.querySelector('.order-block');
 const addressInput = document.querySelector('.form-block__address');
 const mobMenuLists = document.querySelector('.header-nav__mob');
@@ -29,11 +30,38 @@ const btnSaleFooter = document.querySelector('.btn__sale-footer');
 
 const totalBlock = document.querySelector('.aside-block');
 
-const FomData = []
+let FomData = [];
 let elemChash;
-
-
 let mokPromo = '1B6D9FC';
+
+// Обработка всех данных со страницы
+function getInfoCard(){
+    let result = []
+    orderCard.forEach(elem =>{
+        let title = elem.querySelector('.descr-title').innerHTML;
+        let article = elem.querySelector('.descr-article span').innerHTML;
+        let count = elem.querySelector('.order-card__number_total').innerHTML;
+
+        let sizes = elem.querySelectorAll('.descr-size__item-input');
+        let colors = elem.querySelectorAll('.descr-color__input');
+        let selectSize, selectColor;
+
+        sizes.forEach(size =>{
+            if(size.checked){
+                selectSize = size.value
+            }
+        })
+
+        colors.forEach(color =>{
+            if(color.checked){
+                selectColor = color.value
+            }
+        })
+        result.push({title, article, selectSize, selectColor, count});
+    })
+
+    return result
+}
 
 function getAllDate (){
     let obj = {}
@@ -54,8 +82,10 @@ function getAllDate (){
 
     if(howDeviliry.checked){
         obj['Доставка'] = "Со склада"
+        paymentBlock.style.display = 'none';
     }else{
         obj['Доставка'] = "Курьером"
+        paymentBlock.style.display = 'block';
     }
 
     obj['Итого'] = totalSumm.innerText
@@ -94,8 +124,9 @@ function isValidForm(){
 }
 
 isValidForm();
+// ------------------------
 
-
+// Содания блока после отправки формы
 function createDoneBlock(){
     let div = document.createElement('div');
     div.classList.add('aside-block__done')
@@ -108,7 +139,9 @@ function createDoneBlock(){
     totalBlock.innerHTML = '';
     totalBlock.append(div);
 }
+// ------------------------
 
+// Удаление и возвращение элемента
 function deleteElem(){
     let divDelete = document.createElement('div');
     divDelete.classList.add('order-delete');
@@ -142,21 +175,25 @@ function deleteElem(){
             }else{
                 elem.innerHTML = elemChash.outerHTML;
                 changeCountProduct();
-                
             }
         })
         elem.addEventListener('click', e =>{
-            let btnReturn = e.target.closest('.btn__close');
-            if(!btnReturn){
+            let btnClose = e.target.closest('.btn__close');
+            if(!btnClose){
                 return false;
             }else{
-                removeElement(btnReturn);
+                removeElement(btnClose);
             }
         })
     });
 }
 
 deleteElem();
+
+function removeElement(btn){
+    elemChash = null;
+    btn.parentElement.remove();
+}
 
 
 function removeAll(){
@@ -169,13 +206,9 @@ function removeAll(){
 }
 
 removeAll();
+// ------------------------
 
-function removeElement(btn){
-    elemChash = null;
-    btn.parentElement.remove();
-}
-
-
+// Вычисление символов которые остались в поле комментариев
 function calcSymbol(){
     commnetSymb.addEventListener('keyup', () =>{
         curSymb.innerHTML = commnetSymb.value.length;
@@ -183,35 +216,9 @@ function calcSymbol(){
 }
 
 calcSymbol();
+// ------------------------
 
-function getInfoCard(){
-    let result = []
-    orderCard.forEach(elem =>{
-        let title = elem.querySelector('.descr-title').innerHTML;
-        let article = elem.querySelector('.descr-article span').innerHTML;
-        let count = elem.querySelector('.order-card__number_total').innerHTML;
-
-        let sizes = elem.querySelectorAll('.descr-size__item-input');
-        let colors = elem.querySelectorAll('.descr-color__input');
-        let selectSize, selectColor;
-
-        sizes.forEach(size =>{
-            if(size.checked){
-                selectSize = size.value
-            }
-        })
-
-        colors.forEach(color =>{
-            if(color.checked){
-                selectColor = color.value
-            }
-        })
-        result.push({title, article, selectSize, selectColor, count});
-    })
-
-    return result
-}
-
+// Изменение количества товара
 function changeCountProduct(){
     orderCard.forEach(elem =>{
         let btnIncriment = elem.querySelector('.order-card__number_plus');
@@ -238,7 +245,9 @@ function changeCountProduct(){
 }
 
 changeCountProduct();
+// ------------------------
 
+// Обработка placeholdera и отображение блоков
 function isShowBlock(btn, block){
     document.addEventListener('click', (e) =>{
         if(! e.composedPath().includes(btn)){
@@ -262,6 +271,22 @@ function showAfter(arr){
 }
 
 showAfter(inputsBlock);
+
+function isShow(input, after){
+    
+    input.addEventListener('focus', () =>{
+        after.style.display = 'block'
+    });
+    input.addEventListener('blur', () =>{
+        if(input.value !== ""){
+            after.style.display = 'block'
+        }else{
+            after.style.display = 'none'
+        }
+    })
+    
+}
+// ------------------------
 
 // Отображение и стилизация импута если он не валидный.
 function showValid(arr){
@@ -295,21 +320,8 @@ function showValid(arr){
 }
 
 showValid(inputsBlockNoTextarea)
+// ------------------------
 
-function isShow(input, after){
-    
-    input.addEventListener('focus', () =>{
-        after.style.display = 'block'
-    });
-    input.addEventListener('blur', () =>{
-        if(input.value !== ""){
-            after.style.display = 'block'
-        }else{
-            after.style.display = 'none'
-        }
-    })
-    
-}
 // Перекидываение блока с навигацией 2.0
 function moveItems(navTopItems, mobMenuLists) {
     let isEvent = false;
@@ -394,8 +406,9 @@ function init(){
 
     
 }
+// ------------------------
 
-
+// Вывод если купон был верный
 function addText(){
     if(inputPromo.value === mokPromo){
         sucsessPromo.innerHTML = `${inputPromo.value}- купон применен`;
@@ -413,7 +426,9 @@ function isShowPromoMessange(){
 
     isShowButton(inputPromo, btnApply);
 }
+// ------------------------
 
+// Вывод кнопки в импуте, при наведении
 function isShowButton(elem, btn, type = 'block'){
     elem.addEventListener('focus', () =>{
         btn.style.display = type;
@@ -424,18 +439,22 @@ function isShowButton(elem, btn, type = 'block'){
     })
 }
 
+isShowButton(addressInput, btnAddress)
+isShowButton(inputEmail, btnSaleFooter, 'flex')
+// ------------------------
+
+
+// Отправка почты на подписку 
 function sendEmail(){
     btnSaleFooter.addEventListener('click', () =>{
         if(inputEmail.value.length > 0){
             console.log('sendEmail:', inputEmail.value);
         }
     })
-    
 }
 
 sendEmail();
+// ------------------------
 
-isShowButton(addressInput, btnAddress)
-isShowButton(inputEmail, btnSaleFooter, 'flex')
 
 isShowPromoMessange();
