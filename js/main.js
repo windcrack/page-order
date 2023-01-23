@@ -112,7 +112,8 @@ function isValidForm(){
 
     buttonOrder.addEventListener('click', (e) =>{
         //e.preventDefault();
-        
+        const afters = document.querySelectorAll('.form-block__after:not(.form-block__after-comment)');
+        console.log(afters);
         if(obj.user_name.value === "" ||
         obj.user_second.value === "" ||
         obj.user_phone.value === "" ||
@@ -130,12 +131,16 @@ function isValidForm(){
                     input.style.border = '1px solid var(--color-gray-ligth)';
                 }
             });
+            afters.forEach(after =>{
+                after.style.color = 'var(--color-red)';
+            })
             return false;
         }
         else{
             showAfter(inputsBlock);
             createDoneBlock();
-            getAllDate(); 
+            getAllDate();
+            // location.reload();
         }
         
     })
@@ -292,7 +297,7 @@ function showAfter(arr){
 }
 
 showAfter(inputsBlock);
-
+// Вывод плейсхолдера над инпутом
 function isShow(input, after){
     
     input.addEventListener('focus', () =>{
