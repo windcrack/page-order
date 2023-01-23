@@ -38,10 +38,16 @@ img
     position: absolute
     top: -6rem
     right: 0
+    
 
     &:hover
-        svg
-            fill: var(--color-black)
+        .to-top__icon
+            color: var(--color-black)
+            stroke: var(--color-black)
+    &__icon
+        color: var(--color-gray-ligth)
+        transition: var(--effect-transition)
+        
 
 .modal-body
     position: fixed

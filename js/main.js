@@ -35,7 +35,6 @@ let FomData = [];
 let elemChash;
 let mokPromo = '1B6D9FC';
 
-
 // Обработка всех данных со страницы
 function getInfoCard(){
     let result = []

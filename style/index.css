@@ -45,8 +45,13 @@ img {
   top: -6rem;
   right: 0;
 }
-.to-top:hover svg {
-  fill: var(--color-black);
+.to-top:hover .to-top__icon {
+  color: var(--color-black);
+  stroke: var(--color-black);
+}
+.to-top__icon {
+  color: var(--color-gray-ligth);
+  transition: var(--effect-transition);
 }
 
 .modal-body {
@@ -74,7 +79,7 @@ img {
   --color-brown: #AE6D0C;
   --color-black-ligth: #444444;
   --effect-hover: 2px 2px 15px rgba(0, 0, 0, 0.1);
-  --effect-transition: 0.3s;
+  --effect-transition: all 0.3s;
   --font-helvetica-regular: "Helvetica_regular";
   --font-helvetica-bold: "Helvetica_bold";
 }
