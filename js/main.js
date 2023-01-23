@@ -113,7 +113,7 @@ function isValidForm(){
     buttonOrder.addEventListener('click', (e) =>{
         //e.preventDefault();
         const afters = document.querySelectorAll('.form-block__after:not(.form-block__after-comment)');
-        console.log(afters);
+        // console.log(afters);
         if(obj.user_name.value === "" ||
         obj.user_second.value === "" ||
         obj.user_phone.value === "" ||
