@@ -116,7 +116,7 @@ img {
   color: var(--color-black);
   transition: all var(--effect-transition);
 }
-.header-nav__link_active {
+.header-nav__link-active {
   text-decoration: underline;
 }
 .header-nav__link:hover {
@@ -278,7 +278,7 @@ img {
 .breadcrums__item:last-of-type::after {
   content: none;
 }
-.breadcrums__item_active {
+.breadcrums__item-active {
   color: var(--color-black);
 }
 .breadcrums__link {
@@ -367,25 +367,25 @@ img {
   gap: 30px;
   margin-right: 30px;
 }
-.order-card__number_minus, .order-card__number_plus, .order-card__number_total {
+.order-card__number-minus, .order-card__number-plus, .order-card__number-total {
   background: transparent;
   border: none;
   display: grid;
   place-content: center;
 }
-.order-card__number_minus, .order-card__number_plus {
+.order-card__number-minus, .order-card__number-plus {
   cursor: pointer;
   width: 32px;
   height: 32px;
   font-size: 22px;
 }
-.order-card__number_minus:disabled, .order-card__number_plus:disabled {
+.order-card__number-minus:disabled, .order-card__number-plus:disabled {
   color: var(--color-gray-ligth);
 }
-.order-card__number_minus:not([disabled]):hover, .order-card__number_plus:not([disabled]):hover {
+.order-card__number-minus:not([disabled]):hover, .order-card__number-plus:not([disabled]):hover {
   color: var(--color-gray);
 }
-.order-card__number_total {
+.order-card__number-total {
   font-weight: 400;
   font-size: 16px;
   line-height: 21px;
@@ -482,11 +482,9 @@ img {
   cursor: pointer;
 }
 
-.price {
-  font-weight: 400;
-}
 .price_last {
   margin-right: 10px;
+  font-weight: 400;
 }
 .price__main {
   font-size: 12px;
@@ -525,23 +523,23 @@ img {
 .aside-block__item-text {
   justify-self: end;
 }
-.aside-block__item_promo, .aside-block__item_total {
+.aside-block__item-promo, .aside-block__item-total {
   margin: 0 0 20px;
 }
-.aside-block__item_total .aside-block__item-text {
+.aside-block__item-total .aside-block__item-text {
   font-weight: 700;
 }
-.aside-block__item_sale .aside-block__item-text {
+.aside-block__item-sale .aside-block__item-text {
   color: var(--color-red);
   font-weight: 700;
 }
-.aside-block__item_sale, .aside-block__item_stock {
+.aside-block__item-sale, .aside-block__item-stock {
   margin: 0 0 8px;
 }
-.aside-block__item_promo .aside-block__item-text, .aside-block__item_stock .aside-block__item-text {
+.aside-block__item-promo .aside-block__item-text, .aside-block__item-stock .aside-block__item-text {
   color: var(--color-red);
 }
-.aside-block__item_deviliry .aside-block__item-text {
+.aside-block__item-deviliry .aside-block__item-text {
   font-weight: 700;
 }
 .aside-block__deviliry {
@@ -634,7 +632,7 @@ img {
   width: 100%;
   position: relative;
 }
-.form-block_address {
+.form-block-address {
   grid-column: 1/span 2;
 }
 .form-block__valid {

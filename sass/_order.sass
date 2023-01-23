@@ -8,7 +8,7 @@
             display: grid
             gap: 187px
             grid-auto-rows: max-content
-    
+
     &-header
         display: flex
         gap: 20px
@@ -53,7 +53,6 @@
             border-top: 0.5px solid var(--color-gray-ligth)
             border-bottom: 0.5px solid var(--color-gray-ligth)
 
-
         &__img-block
             width: 130px
             height: 160px
@@ -62,7 +61,7 @@
             max-width: 197px
             margin-right: 10px
         &__price
-            margin-right: 30px 
+            margin-right: 30px
         &__number
             background: var(--color-gray-trans)
             padding: 5px 10px
@@ -73,14 +72,13 @@
             gap: 30px
             margin-right: 30px
 
-            &_minus, &_plus, &_total
+            &-minus, &-plus, &-total
                 background: transparent
                 border: none
                 display: grid
                 place-content: center
-   
-            
-            &_minus, &_plus
+
+            &-minus, &-plus
                 cursor: pointer
                 width: 32px
                 height: 32px
@@ -91,13 +89,12 @@
 
                 &:not([disabled]):hover
                     color: var(--color-gray)
-                
-            
-            &_total
+
+            &-total
                 font-weight: 400
                 font-size: 16px
                 line-height: 21px
-        
+
         &__delete
             height: fit-content
             font-size: 24px
@@ -126,11 +123,10 @@
         &_mob
             display: none
 
-        
     &-article, &-season
         color: var(--color-gray)
         margin: 0 0 10px
-    
+
     &-size
         display: flex
         list-style: none
@@ -148,7 +144,6 @@
                     & ~ .btn__size
                         color: var(--color-gray-ligth)
 
-            
     &-color
         display: flex
         list-style: none
@@ -170,7 +165,7 @@
                     &:checked
                         & ~ .descr-color__label
                             border: 1px solid var(--color-black)
-                    
+
                 .descr-color__label
                     span
                         background: var(--color-black)
@@ -197,12 +192,12 @@
             border-radius: 50%
             padding: 2px
             cursor: pointer
-                  
+
 .price
 
     &_last
         margin-right: 10px
-    font-weight: 400
+        font-weight: 400
     &__main
         font-size: 12px
         line-height: 15px
@@ -233,29 +228,29 @@
         font-weight: 400
         font-size: 20px
         ine-height: 24px
-        
+
         &-text
             justify-self: end
-        &_promo, &_total
+        &-promo, &-total
             margin: 0 0 20px
-        &_total
+        &-total
             .aside-block__item-text
                 font-weight: 700
-        &_sale
+        &-sale
             .aside-block__item-text
                 color: var(--color-red)
                 font-weight: 700
-        &_sale, &_stock
+        &-sale, &-stock
             margin: 0 0 8px
 
-        &_promo, &_stock
+        &-promo, &-stock
             .aside-block__item-text
                 color: var(--color-red)
-        &_deviliry
-            
+        &-deviliry
+
             .aside-block__item-text
                 font-weight: 700
-        
+
     &__deviliry
         display: grid
         grid-template-columns: 1fr 41px
@@ -276,11 +271,11 @@
         &-select
             grid-column: 2 / 3
             grid-row: 1 / span 2
-    
+
     &__total
         display: grid
         grid-template-columns: repeat(2, 1fr)
-        
+
         &-text, &-number
             font-weight: 700
             font-size: 28px
@@ -292,9 +287,7 @@
             width: 100%
             position: relative
             margin: 0 0 20px
-            
-            
-        
+
         &-input
             width: 100%
             padding: 15px 20px
@@ -302,7 +295,6 @@
             line-height: 21px
             margin: 0 0 20px
             outline: none
-
 
         &-number
             justify-self: end
@@ -343,7 +335,7 @@
     &-block
         width: 100%
         position: relative
-        &_address
+        &-address
             grid-column: 1 / span 2
 
         &__valid
@@ -360,7 +352,6 @@
             background: var(--color-white)
             padding: 0 5px
             color: var(--color-gray)
-            
 
         &__promo
 
@@ -417,12 +408,10 @@
         outline: none
         padding: 15px 20px
         font-family: var(--font-helvetica-regular)
-    
+
     &__count
         font-weight: 400
         font-size: 12px
         line-height: 15px
         color: var(--color-gray)
         margin-left: 20px
-
-        

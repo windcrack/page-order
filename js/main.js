@@ -112,7 +112,7 @@ function isValidForm(){
 
     buttonOrder.addEventListener('click', (e) =>{
         //e.preventDefault();
-        const afters = document.querySelectorAll('.form-block__after:not(.form-block__after-comment)');
+        const afters = document.querySelectorAll('.form-block__after:not(.js-after-сomment)');
         // console.log(afters);
         if(obj.user_name.value === "" ||
         obj.user_second.value === "" ||
@@ -247,9 +247,9 @@ calcSymbol();
 // Изменение количества товара
 function changeCountProduct(){
     orderCard.forEach(elem =>{
-        let btnIncriment = elem.querySelector('.order-card__number_plus');
-        let btnDecriment = elem.querySelector('.order-card__number_minus');
-        let count = elem.querySelector('.order-card__number_total');
+        let btnIncriment = elem.querySelector('.order-card__number-plus');
+        let btnDecriment = elem.querySelector('.order-card__number-minus');
+        let count = elem.querySelector('.order-card__number-total');
 
         btnIncriment.addEventListener('click', ()=>{
             let curCount = +count.innerHTML
